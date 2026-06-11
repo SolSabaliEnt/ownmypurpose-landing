@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Robert Williams III portfolio landing page." />
-  <title>OwnMyPurpose.io | Robert Williams III</title>
+  <meta name="description" content="Book a 15-minute project fit check with Robert Williams III for mobile apps, dashboards, automations, and business systems." />
+  <title>OwnMyPurpose.io | Build Clarity Call</title>
   <link rel="icon" type="image/png" href="https://nxlvfrxtofueceedpluc.supabase.co/storage/v1/object/public/Assets/rwiii%20logo.png" />
   <link rel="apple-touch-icon" href="https://nxlvfrxtofueceedpluc.supabase.co/storage/v1/object/public/Assets/rwiii%20logo.png" />
   <link rel="preconnect" href="https://unpkg.com" />
@@ -25,10 +25,6 @@
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-// Standalone React Landing Page
-// Landing-page only. The six mobile app screens are the only clickable links.
-// Responsive for desktop, tablet, and mobile.
-
 const DEFAULT_FOUNDER_IMAGE =
     "https://nxlvfrxtofueceedpluc.supabase.co/storage/v1/object/public/Assets/RobWilCartoon.png"
 
@@ -85,11 +81,6 @@ function Landing_Page(props) {
     const settings = {
         brandName: "OwnMyPurpose.io",
         logoImage: DEFAULT_LOGO_IMAGE,
-        eyebrow: "Builder. Problem Solver. Systems Thinker.",
-        headline: "I build mobile apps with",
-        accentWord: "purpose.",
-        subheadline:
-            "Hi, I'm Robert Williams III and I turn real operational problems into mobile apps and systems that create clarity, save time, and make an impact. In 9 months, I built eight of my own.",
         founderImage: DEFAULT_FOUNDER_IMAGE,
         accent: "#F2B233",
         dark: "#0F0F10",
@@ -102,12 +93,7 @@ function Landing_Page(props) {
 
     const {
         brandName,
-        logoText,
         logoImage,
-        eyebrow,
-        headline,
-        accentWord,
-        subheadline,
         accent,
         dark,
         light,
@@ -217,250 +203,139 @@ function Landing_Page(props) {
         },
     ]
 
-    const capabilities = [
-        [
-            "▯",
-            "Mobile Apps",
-            "iOS, Android, and mobile-first product experiences built around real user workflows.",
-        ],
-        [
-            "◎",
-            "Backends & APIs",
-            "Auth, databases, protected data, functions, and service logic that support real operations.",
-        ],
-        [
-            "⚡",
-            "Automations",
-            "Workflow systems that reduce manual work and improve speed, consistency, and follow-through.",
-        ],
-        [
-            "↗",
-            "Dashboards",
-            "Operational and decision-making interfaces that turn activity into visibility and action.",
-        ],
-        [
-            "◌",
-            "AI Integration",
-            "AI used inside practical workflows rather than treated as a gimmick or decorative feature.",
-        ],
-        [
-            "◇",
-            "Systems Thinking",
-            "Business structure, lifecycle states, roles, and repeatable logic that make systems work.",
-        ],
+    const clarityBullets = [
+        "What your app or system actually needs to do",
+        "Which features matter now and which can wait",
+        "Where your current workflow is costing time, money, or clarity",
+        "Whether you need a mobile app, dashboard, automation, MVP, or internal tool",
+        "The smartest first version to build without overcomplicating it",
     ]
 
-    const process = [
-        [
-            "01",
-            "Understand",
-            "Define the business problem, users, roles, constraints, and intended outcome.",
-        ],
-        [
-            "02",
-            "Structure",
-            "Map the workflow into states, data, logic, and repeatable operational structure.",
-        ],
-        [
-            "03",
-            "Build",
-            "Design and develop the app, backend, automation, or dashboard required for the system.",
-        ],
-        [
-            "04",
-            "Prove",
-            "Show the product, document the thinking, and prepare the next version with intention.",
-        ],
+    const builderBullets = [
+        "Business systems thinking",
+        "Full-stack app building",
+        "Mobile-first product design",
+        "Automation and dashboard strategy",
+        "Founder-level product ownership",
     ]
 
-    const rotations = isMobile ? [0, 0, 0, 0, 0, 0] : [-3, -1, 1, -1, 2, -2]
+    const forYouBullets = [
+        "You have an app idea but need help turning it into a real plan",
+        "Your business is running through texts, spreadsheets, DMs, or manual follow-up",
+        "You need a booking flow, dashboard, internal tool, automation, or mobile app",
+        "You already started building but the workflow is unclear",
+        "You want someone who understands both business and software",
+    ]
 
-    const FounderImage = ({ variant }) => {
-        const style =
-            variant === "hero"
-                ? merge(styles.heroImage, r.heroImage)
-                : merge(styles.founderVisualImage, r.founderVisualImage)
+    const callBullets = [
+        "We identify the real problem behind the app idea",
+        "We clarify the user, workflow, and business goal",
+        "We decide whether this needs an app, dashboard, automation, or system",
+        "I tell you what I would build first",
+        "If it makes sense, we talk about next steps",
+    ]
 
-        return (
-            <img
-                src={founderImage}
-                alt="Robert founder portrait"
-                style={style}
-                loading={variant === "hero" ? "eager" : "lazy"}
-                decoding="async"
-                onError={(event) => {
-                    event.currentTarget.style.display = "none"
-                    const parent = event.currentTarget.parentElement
-                    if (parent) parent.setAttribute("data-image-error", "true")
-                }}
-            />
-        )
-    }
+    const rotations = isMobile ? [0, 0, 0, 0, 0, 0, 0, 0] : [-2, 1, -1, 2, -1, 1, -2, 2]
+
+    const CtaButton = ({ children, wide }) => (
+        <a href={discoveryCallUrl} style={merge(styles.ctaButton, wide && styles.ctaButtonWide, { background: accent })}>
+            {children} <span>→</span>
+        </a>
+    )
+
+    const BulletList = ({ items, lightMode }) => (
+        <div style={styles.bulletList}>
+            {items.map((item) => (
+                <div key={item} style={styles.bulletItem}>
+                    <span style={merge(styles.bulletIcon, { color: accent })}>›</span>
+                    <span style={merge(styles.bulletText, lightMode && styles.bulletTextLight)}>{item}</span>
+                </div>
+            ))}
+        </div>
+    )
 
     return (
         <main style={merge(styles.page, { background: light, color: text })}>
-            <section
-                style={merge(styles.hero, r.hero, {
-                    background: `radial-gradient(circle at ${isMobile ? "50% 8%" : "78% 34%"}, rgba(255,255,255,0.08), transparent ${isMobile ? "42%" : "28%"}), ${dark}`,
-                })}
-            >
+            <section style={merge(styles.hero, r.hero, { background: `radial-gradient(circle at ${isMobile ? "50% 12%" : "82% 30%"}, rgba(242,178,51,0.18), transparent ${isMobile ? "36%" : "28%"}), ${dark}` })}>
                 <nav style={merge(styles.nav, r.nav)} aria-label="Brand header">
                     <div style={styles.logoWrap}>
-                        <img
-                            src={logoImage}
-                            alt="RWIII logo"
-                            style={merge(styles.logoImage, r.logoImage)}
-                        />
-                        <div style={merge(styles.brandName, r.brandName)}>
-                            {brandName}
-                        </div>
+                        <img src={logoImage} alt="RWIII logo" style={merge(styles.logoImage, r.logoImage)} />
+                        <div style={merge(styles.brandName, r.brandName)}>{brandName}</div>
                     </div>
                 </nav>
 
                 <div style={merge(styles.heroInner, r.heroInner)}>
                     <div style={merge(styles.heroCopy, r.heroCopy)}>
-                        <div
-                            style={merge(styles.eyebrow, r.eyebrow, {
-                                color: accent,
-                            })}
-                        >
-                            {eyebrow}
+                        <div style={merge(styles.eyebrow, r.eyebrow, { color: accent })}>
+                            FREE 15-MINUTE PROJECT FIT CHECK
                         </div>
                         <h1 style={merge(styles.headline, r.headline)}>
-                            {headline}{" "}
-                            <span style={{ color: accent }}>{accentWord}</span>
+                            Turn your business idea, messy workflow, or app concept into a <span style={{ color: accent }}>clear software plan.</span>
                         </h1>
                         <p style={merge(styles.subheadline, r.subheadline)}>
-                            {subheadline}
+                            I build mobile apps, dashboards, automations, and business systems for founders and service businesses. In 9 months, I built 8 products of my own — now I help serious builders get clarity on what to build next.
                         </p>
-                        <div
-                            style={merge(styles.heroStatement, r.heroStatement)}
-                        >
-                            <span style={{ color: accent }}>
-                                Eight products.
-                            </span>
-                            <span> One builder. Real business problems.</span>
+                        <div style={merge(styles.heroActions, r.heroActions)}>
+                            <CtaButton wide>Book My 15-Minute Project Fit Check</CtaButton>
+                            <p style={styles.ctaMicrocopyDark}>No pressure. We’ll clarify the problem, the system, and the best next step.</p>
                         </div>
                         <div style={merge(styles.proofRow, r.proofRow)}>
-                            <span
-                                style={merge(styles.laurel, { color: accent })}
-                            >
-                                ❧
-                            </span>
-                            <span>8 apps built</span>
-                            <span style={{ color: accent }}>•</span>
+                            <span style={{ color: accent }}>8 apps built</span>
+                            <span>•</span>
                             <span>9 months</span>
-                            <span style={{ color: accent }}>•</span>
-                            <span>Full-stack</span>
-                            <span style={{ color: accent }}>•</span>
+                            <span>•</span>
+                            <span>Mobile apps + systems</span>
+                            <span>•</span>
                             <span>Business first</span>
                         </div>
                     </div>
 
                     <div style={merge(styles.heroImageWrap, r.heroImageWrap)}>
-                        <FounderImage variant="hero" />
+                        <img src={founderImage} alt="Robert founder portrait" style={merge(styles.heroImage, r.heroImage)} loading="eager" decoding="async" />
+                    </div>
+                </div>
+            </section>
+
+            <section style={merge(styles.claritySection, r.claritySection)}>
+                <div style={merge(styles.split, r.split)}>
+                    <div>
+                        <div style={merge(styles.sectionKicker, { color: accent })}>GET READY TO CLARIFY:</div>
+                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Before you build software, get clear on the system.</h2>
+                        <p style={merge(styles.bodyText, { color: muted })}>
+                            A good app starts with a clear workflow. This short call is designed to help you understand what should be built first and what should wait.
+                        </p>
+                    </div>
+                    <div style={styles.bulletPanel}>
+                        <BulletList items={clarityBullets} />
+                        <div style={styles.panelCta}><CtaButton>Book the Fit Check</CtaButton></div>
                     </div>
                 </div>
             </section>
 
             <section style={merge(styles.workSection, r.workSection)}>
-                <div style={merge(styles.workTop, r.workTop)}>
-                    <div style={merge(styles.workIntro, r.workIntro)}>
-                        <div
-                            style={merge(styles.sectionKicker, {
-                                color: accent,
-                            })}
-                        >
-                            MY WORK
-                        </div>
-                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>
-                            Eight apps. Eight problems solved.
-                        </h2>
-                        <p
-                            style={merge(styles.bodyText, r.bodyText, {
-                                color: muted,
-                            })}
-                        >
-                            Each app was built around a real need. Different
-                            industries. Same focus: build something useful.
-                        </p>
-                        <p style={styles.clickNote}>
-                            Tap a phone to open that project.
-                        </p>
-                    </div>
+                <div style={merge(styles.centerHeader, r.centerHeader)}>
+                    <div style={merge(styles.sectionKicker, { color: accent })}>PROOF OF BUILD</div>
+                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Eight products. One builder. Real business problems.</h2>
+                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 760, margin: "20px auto 0" })}>
+                        These are not random practice projects. Each product was built around a specific operational problem, user type, workflow, or business model.
+                    </p>
+                </div>
 
-                    <div style={merge(styles.phoneRail, r.phoneRail)}>
-                        {apps.map((app, index) => (
-                            <a
-                                key={app.name}
-                                href={app.url}
-                                aria-label={`Open ${app.name}`}
-                                target="_blank"
-                                rel="noreferrer"
-                                style={merge(styles.phoneLink, r.phoneLink, {
-                                    transform: `rotate(${rotations[index]}deg)`,
-                                })}
-                            >
-                                <div style={merge(styles.phone, r.phone)}>
-                                    <div
-                                        style={merge(
-                                            styles.phoneScreen,
-                                            r.phoneScreen,
-                                            { background: app.gradient }
-                                        )}
-                                    >
-                                        <div style={styles.phoneStatus}>
-                                            9:41
-                                        </div>
-                                        <div
-                                            style={merge(
-                                                styles.phoneIcon,
-                                                r.phoneIcon
-                                            )}
-                                        >
-                                            {app.icon}
-                                        </div>
-                                        <div
-                                            style={merge(
-                                                styles.phoneName,
-                                                r.phoneName
-                                            )}
-                                        >
-                                            {isMobile
-                                                ? app.shortName
-                                                : app.name}
-                                        </div>
-                                        <div style={styles.phoneCategory}>
-                                            {app.category}
-                                        </div>
-                                        <div
-                                            style={merge(
-                                                styles.phoneCopy,
-                                                r.phoneCopy
-                                            )}
-                                        >
-                                            {app.line}
-                                        </div>
-                                        <div
-                                            style={merge(
-                                                styles.phoneButton,
-                                                r.phoneButton,
-                                                {
-                                                    background:
-                                                        app.name ===
-                                                        "Wrenchin' Up"
-                                                            ? "#D55443"
-                                                            : accent,
-                                                }
-                                            )}
-                                        >
-                                            Open
-                                        </div>
-                                    </div>
+                <div style={merge(styles.phoneRail, r.phoneRail)}>
+                    {apps.map((app, index) => (
+                        <a key={app.name} href={app.url} aria-label={`Open ${app.name}`} target="_blank" rel="noreferrer" style={merge(styles.phoneLink, r.phoneLink, { transform: `rotate(${rotations[index]}deg)` })}>
+                            <div style={merge(styles.phone, r.phone)}>
+                                <div style={merge(styles.phoneScreen, r.phoneScreen, { background: app.gradient })}>
+                                    <div style={styles.phoneStatus}>9:41</div>
+                                    <div style={merge(styles.phoneIcon, r.phoneIcon)}>{app.icon}</div>
+                                    <div style={merge(styles.phoneName, r.phoneName)}>{isMobile ? app.shortName : app.name}</div>
+                                    <div style={styles.phoneCategory}>{app.category}</div>
+                                    <div style={merge(styles.phoneCopy, r.phoneCopy)}>{app.line}</div>
+                                    <div style={merge(styles.phoneButton, r.phoneButton, { background: app.name === "Wrenchin' Up" ? "#D55443" : accent })}>Open</div>
                                 </div>
-                            </a>
-                        ))}
-                    </div>
+                            </div>
+                        </a>
+                    ))}
                 </div>
 
                 <div style={merge(styles.categoryRow, r.categoryRow)}>
@@ -474,15 +349,10 @@ function Landing_Page(props) {
                         ["↗", "Growth"],
                         ["◆", "Roadside"],
                     ].map(([icon, label], index) => (
-                        <div
-                            key={`${label}-${index}`}
-                            style={merge(styles.categoryItem, r.categoryItem, {
-                                borderRight:
-                                    isMobile || index === 7
-                                        ? "none"
-                                        : "1px solid #E8E1D5",
-                            })}
-                        >
+                        <div key={`${label}-${index}`} style={merge(styles.categoryItem, r.categoryItem, {
+                            borderRight: isMobile || [3, 7].includes(index) ? "none" : "1px solid #E8E1D5",
+                            borderBottom: index > 3 ? "none" : "1px solid #E8E1D5",
+                        })}>
                             <span>{icon}</span>
                             <span>{label}</span>
                         </div>
@@ -490,265 +360,65 @@ function Landing_Page(props) {
                 </div>
             </section>
 
-            <section
-                style={merge(styles.capabilitySection, r.capabilitySection)}
-            >
-                <div style={merge(styles.capabilityIntro, r.capabilityIntro)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>
-                        WHAT I DO
-                    </div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>
-                        I build more than apps.
-                    </h2>
-                    <p
-                        style={merge(styles.bodyText, r.bodyText, {
-                            color: muted,
-                        })}
-                    >
-                        I design and build end-to-end software systems that help
-                        businesses operate better, create structure, and grow
-                        with more clarity.
-                    </p>
+            <section style={merge(styles.meetSection, r.meetSection, { background: dark })}>
+                <div style={merge(styles.meetImageWrap, r.meetImageWrap)}>
+                    <img src={founderImage} alt="Robert founder portrait" style={merge(styles.meetImage, r.meetImage)} loading="lazy" decoding="async" />
                 </div>
-                <div style={merge(styles.capabilityGrid, r.capabilityGrid)}>
-                    {capabilities.map(([icon, title, desc]) => (
-                        <div
-                            key={title}
-                            style={merge(
-                                styles.capabilityCard,
-                                r.capabilityCard
-                            )}
-                        >
-                            <div style={styles.capabilityIcon}>{icon}</div>
-                            <h3 style={styles.cardTitle}>{title}</h3>
-                            <p style={merge(styles.cardText, { color: muted })}>
-                                {desc}
-                            </p>
-                        </div>
-                    ))}
+                <div style={merge(styles.meetCopy, r.meetCopy)}>
+                    <div style={merge(styles.sectionKicker, { color: accent })}>MEET THE BUILDER</div>
+                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>Software is my execution layer. Business is the deeper discipline.</h2>
+                    <p style={styles.darkBody}>
+                        I came into software with business, operations, leadership, marketing, customer service, and product thinking already in the room. Learning to build apps gave me the execution layer.
+                    </p>
+                    <p style={styles.darkBody}>
+                        Now I use software to create structure: mobile apps, dashboards, automations, workflows, and business systems that solve real operational problems.
+                    </p>
+                    <BulletList items={builderBullets} lightMode />
                 </div>
             </section>
 
-            <section
-                style={merge(styles.statementBand, r.statementBand, {
-                    background: dark,
-                })}
-            >
-                <div
-                    style={merge(
-                        styles.statementBandInner,
-                        r.statementBandInner
-                    )}
-                >
+            <section style={merge(styles.forSection, r.forSection)}>
+                <div style={merge(styles.split, r.split)}>
                     <div>
-                        <div
-                            style={merge(styles.sectionKicker, {
-                                color: accent,
-                            })}
-                        >
-                            CORE BELIEF
-                        </div>
-                        <h2
-                            style={merge(
-                                styles.statementTitle,
-                                r.statementTitle
-                            )}
-                        >
-                            Business becomes real when it has a system.
-                        </h2>
+                        <div style={merge(styles.sectionKicker, { color: accent })}>WHO’S THIS FOR?</div>
+                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>For serious builders who need clarity before they spend.</h2>
+                        <p style={merge(styles.bodyText, { color: muted })}>
+                            This is for founders, service business owners, operators, and serious builders who know they need software but are not fully clear on what the first version should be.
+                        </p>
                     </div>
-                    <p style={merge(styles.statementText, r.statementText)}>
-                        Apps are only one layer. The deeper value is turning
-                        ideas into workflows, roles, logic, data, automations,
-                        and repeatable operating structure.
-                    </p>
+                    <div style={styles.bulletPanel}>
+                        <BulletList items={forYouBullets} />
+                        <div style={styles.notForBox}>Not for people who just want a cheap app with no strategy, no workflow clarity, and no real business purpose.</div>
+                    </div>
                 </div>
             </section>
 
-            <section style={merge(styles.caseStudySection, r.caseStudySection)}>
+            <section style={merge(styles.callSection, r.callSection, { background: dark })}>
                 <div style={merge(styles.centerHeader, r.centerHeader)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>
-                        PROJECT SNAPSHOTS
-                    </div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>
-                        Public proof. Protected strategy.
-                    </h2>
-                    <p
-                        style={merge(styles.bodyText, r.bodyText, {
-                            color: muted,
-                            maxWidth: 720,
-                            margin: "20px auto 0",
-                        })}
-                    >
-                        Some products are shown publicly. Others are
-                        intentionally summarized at a higher level to protect
-                        the underlying system, workflow, or business model.
+                    <div style={merge(styles.sectionKicker, { color: accent })}>WHAT HAPPENS ON THE CALL?</div>
+                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>A short call. A clearer next step.</h2>
+                    <p style={merge(styles.darkBody, { maxWidth: 740, margin: "20px auto 0" })}>
+                        No hard pitch. No pressure. Just a practical conversation about the problem, the workflow, and whether there is a real fit.
                     </p>
                 </div>
-
-                <div style={merge(styles.caseStudyGrid, r.caseStudyGrid)}>
-                    {apps.map((app, index) => (
-                        <article
-                            key={app.name}
-                            style={merge(styles.caseStudyCard, r.caseStudyCard)}
-                        >
-                            <div
-                                style={merge(
-                                    styles.caseStudyVisual,
-                                    r.caseStudyVisual,
-                                    { background: app.gradient }
-                                )}
-                            >
-                                <div style={styles.windowDots}>
-                                    <span style={styles.dot} />
-                                    <span style={styles.dot} />
-                                    <span style={styles.dot} />
-                                </div>
-                                <div
-                                    style={merge(
-                                        styles.mockWindow,
-                                        r.mockWindow
-                                    )}
-                                >
-                                    <div style={styles.mockSidebar} />
-                                    <div style={styles.mockMain}>
-                                        <div style={styles.mockTitle}>
-                                            {app.name}
-                                        </div>
-                                        <div style={styles.mockLineLong} />
-                                        <div style={styles.mockLineShort} />
-                                        <div style={styles.mockGrid}>
-                                            <span style={styles.mockTile} />
-                                            <span style={styles.mockTile} />
-                                            <span style={styles.mockTile} />
-                                            <span style={styles.mockTile} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={styles.caseStudyMeta}>
-                                <div style={styles.caseStudyTopline}>
-                                    <span>
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
-                                    <span style={{ color: accent }}>
-                                        {app.privacy}
-                                    </span>
-                                </div>
-                                <h3 style={styles.caseStudyTitle}>
-                                    {app.name}
-                                </h3>
-                                <p
-                                    style={merge(styles.caseStudyDesc, {
-                                        color: muted,
-                                    })}
-                                >
-                                    {app.line}
-                                </p>
-                                <p style={styles.caseStudyProof}>{app.proof}</p>
-                            </div>
-                        </article>
-                    ))}
-                </div>
-            </section>
-
-            <section style={merge(styles.processSection, r.processSection)}>
-                <div style={merge(styles.centerHeader, r.centerHeader)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>
-                        PROCESS
-                    </div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>
-                        From idea to working system.
-                    </h2>
-                </div>
-                <div style={merge(styles.processGrid, r.processGrid)}>
-                    {process.map(([num, title, desc]) => (
-                        <div key={num} style={styles.processCard}>
-                            <div
-                                style={merge(styles.processNum, {
-                                    color: accent,
-                                })}
-                            >
-                                {num}
-                            </div>
-                            <h3 style={styles.cardTitle}>{title}</h3>
-                            <p style={merge(styles.cardText, { color: muted })}>
-                                {desc}
-                            </p>
+                <div style={merge(styles.callGrid, r.callGrid)}>
+                    {callBullets.map((item, index) => (
+                        <div key={item} style={styles.callCard}>
+                            <div style={merge(styles.callNum, { color: accent })}>{String(index + 1).padStart(2, "0")}</div>
+                            <p style={styles.callText}>{item}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            <section
-                style={merge(styles.founderSection, r.founderSection, {
-                    background: dark,
-                })}
-            >
-                <div style={merge(styles.founderCopy, r.founderCopy)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>
-                        FOUNDER
-                    </div>
-                    <h2 style={merge(styles.founderTitle, r.founderTitle)}>
-                        Software is my execution layer. Business is the deeper
-                        discipline.
-                    </h2>
-                    <p style={styles.founderBody}>
-                        I came into software with business, operations,
-                        leadership, marketing, customer service, and product
-                        thinking already in the room. Learning software expanded
-                        the way I build, but the core lens has always been
-                        systems.
+            <section style={merge(styles.finalCta, r.finalCta)}>
+                <div style={styles.finalCtaInner}>
+                    <div style={merge(styles.sectionKicker, { color: accent })}>LIMITED BUILD SLOTS AVAILABLE</div>
+                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Need software that helps the business run?</h2>
+                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 760, margin: "20px auto 0" })}>
+                        I’m only taking a small number of serious conversations while I finish packaging my portfolio and service offers. If there’s a fit, we’ll define the next step. If not, you’ll still leave with more clarity.
                     </p>
-                    <div style={styles.signature}>Robert</div>
-                </div>
-
-                <div style={merge(styles.founderVisual, r.founderVisual)}>
-                    <FounderImage variant="founder" />
-                    <div style={merge(styles.laptopMock, r.laptopMock)}>
-                        <div style={styles.laptopTopBar} />
-                        <div style={styles.laptopRows}>
-                            <span style={styles.laptopRow} />
-                            <span style={styles.laptopRow} />
-                            <span style={styles.laptopRow} />
-                            <span style={styles.laptopRowShort} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section style={merge(styles.ctaSection, r.ctaSection)}>
-                <div style={styles.ctaCopy}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>
-                        AVAILABLE FOR SELECT BUILDS
-                    </div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>
-                        Need software that helps the business run?
-                    </h2>
-                    <p
-                        style={merge(styles.bodyText, r.bodyText, {
-                            color: muted,
-                        })}
-                    >
-                        I work best with serious founders and service businesses
-                        that need a real system: mobile apps, internal tools,
-                        dashboards, automations, and operational software with
-                        clear purpose.
-                    </p>
-                </div>
-
-                <div style={merge(styles.ctaAction, r.ctaAction)}>
-                    <a
-                        href="https://formulateforms.com/f/own-my-purpose/discovery-call"
-                        style={merge(styles.discoveryButton, {
-                            background: accent,
-                        })}
-                    >
-                        Book a Discovery Call <span>→</span>
-                    </a>
-                    <p style={styles.ctaMicrocopy}>
-                        15-minute fit check. Clear next step. No pressure.
-                    </p>
+                    <div style={styles.finalButtonWrap}><CtaButton wide>Book My 15-Minute Project Fit Check</CtaButton></div>
                 </div>
             </section>
 
@@ -767,173 +437,64 @@ function responsive({ isMobile, isTablet }) {
         return {
             hero: { minHeight: "auto", padding: "24px 22px 0" },
             nav: { height: 56 },
-            logoMark: { fontSize: 28 },
             logoImage: { height: 56 },
             brandName: { fontSize: 16 },
-            heroInner: {
-                minHeight: "auto",
-                gridTemplateColumns: "1fr",
-                gap: 22,
-                alignItems: "center",
-            },
-            heroCopy: { paddingBottom: 18, paddingTop: 44, maxWidth: "100%" },
+            heroInner: { gridTemplateColumns: "1fr", minHeight: "auto", gap: 24, alignItems: "center" },
+            heroCopy: { paddingBottom: 0, paddingTop: 38, maxWidth: "100%" },
             eyebrow: { fontSize: 11, lineHeight: 1.4, marginBottom: 18 },
-            headline: {
-                fontSize: "clamp(42px, 13vw, 58px)",
-                lineHeight: 0.96,
-                letterSpacing: "-0.075em",
-            },
+            headline: { fontSize: "clamp(42px, 12vw, 58px)", lineHeight: 0.96, letterSpacing: "-0.075em" },
             subheadline: { fontSize: 17, lineHeight: 1.48, marginTop: 22 },
-            heroStatement: { fontSize: 16, marginTop: 26 },
-            proofRow: { gap: 10, fontSize: 13, marginTop: 30 },
-            heroImageWrap: {
-                height: 390,
-                alignItems: "end",
-                justifyContent: "center",
-                overflow: "visible",
-                marginTop: 0,
-            },
-            heroImage: {
-                width: "min(350px, 94%)",
-                height: "auto",
-                maxHeight: "none",
-                objectFit: "contain",
-                transform: "translateY(0px)",
-            },
-            workSection: { padding: "48px 22px 34px" },
-            workTop: { gridTemplateColumns: "1fr", gap: 30 },
-            workIntro: { maxWidth: "100%" },
+            heroActions: { alignItems: "stretch" },
+            proofRow: { gap: 10, fontSize: 13, marginTop: 28 },
+            heroImageWrap: { height: 390, alignItems: "end", justifyContent: "center", overflow: "visible", marginTop: 0 },
+            heroImage: { width: "min(350px, 94%)", height: "auto", objectFit: "contain" },
+            claritySection: { padding: "58px 22px" },
+            split: { gridTemplateColumns: "1fr", gap: 28 },
             sectionTitle: { fontSize: "clamp(34px, 10vw, 44px)" },
             bodyText: { fontSize: 16, lineHeight: 1.55 },
-            phoneRail: {
-                display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                gap: 16,
-                minHeight: "auto",
-                alignItems: "stretch",
-            },
-            phoneLink: { width: "100%", minWidth: 0, maxWidth: "none" },
-            phone: { borderRadius: 26, padding: 7 },
+            workSection: { padding: "58px 22px" },
+            centerHeader: { margin: "0 auto 34px" },
+            phoneRail: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16, maxWidth: "100%" },
+            phoneLink: { maxWidth: "none" },
+            phone: { borderRadius: 26, padding: 7, maxWidth: "none" },
             phoneScreen: { minHeight: 222, borderRadius: 20, padding: 12 },
             phoneIcon: { fontSize: 25 },
             phoneName: { fontSize: 15 },
             phoneCopy: { fontSize: 9.5, lineHeight: 1.3 },
             phoneButton: { fontSize: 9, padding: "7px 8px" },
-            categoryRow: {
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gap: 0,
-                marginTop: 34,
-            },
-            categoryItem: {
-                justifyContent: "flex-start",
-                padding: "15px 10px",
-                fontSize: 13,
-                borderBottom: "1px solid #E8E1D5",
-            },
-            capabilitySection: {
-                padding: "58px 22px 64px",
-                gridTemplateColumns: "1fr",
-                gap: 30,
-            },
-            capabilityIntro: { paddingTop: 0 },
-            capabilityGrid: { gridTemplateColumns: "1fr", gap: 14 },
-            capabilityCard: {
-                minHeight: "auto",
-                padding: 24,
-                borderRadius: 20,
-            },
-            statementBand: { padding: "58px 22px" },
-            statementBandInner: { gridTemplateColumns: "1fr", gap: 28 },
-            statementTitle: { fontSize: "clamp(38px, 11vw, 56px)" },
-            statementText: { fontSize: 19, lineHeight: 1.45 },
-            caseStudySection: { padding: "62px 22px" },
-            centerHeader: { margin: "0 auto 34px" },
-            caseStudyGrid: { gridTemplateColumns: "1fr", gap: 18 },
-            caseStudyCard: { borderRadius: 24 },
-            caseStudyVisual: { height: 210 },
-            mockWindow: { height: 130 },
-            processSection: { padding: "62px 22px" },
-            processGrid: { gridTemplateColumns: "1fr", gap: 22 },
-            founderSection: {
-                padding: "62px 22px",
-                gridTemplateColumns: "1fr",
-                gap: 32,
-            },
-            founderCopy: { marginLeft: 0, maxWidth: "100%" },
-            founderTitle: { fontSize: "clamp(36px, 10vw, 52px)" },
-            founderVisual: { minHeight: 430 },
-            founderVisualImage: {
-                left: 12,
-                width: 300,
-                height: "auto",
-                maxHeight: "none",
-            },
-            laptopMock: {
-                right: 14,
-                bottom: 38,
-                width: "54%",
-                height: 190,
-                padding: 18,
-            },
-            ctaSection: { padding: "62px 22px", display: "block" },
-            ctaAction: { marginTop: 28, alignItems: "flex-start" },
-            footer: {
-                gridTemplateColumns: "1fr",
-                gap: 10,
-                padding: "28px 22px",
-            },
+            categoryRow: { gridTemplateColumns: "repeat(2, 1fr)", marginTop: 34, maxWidth: "100%" },
+            categoryItem: { justifyContent: "flex-start", padding: "15px 10px", fontSize: 13, borderBottom: "1px solid #E8E1D5" },
+            meetSection: { gridTemplateColumns: "1fr", padding: "58px 22px", gap: 32 },
+            meetImageWrap: { minHeight: 420, order: 2 },
+            meetImage: { width: 300, left: "50%", transform: "translateX(-50%)" },
+            meetCopy: { padding: 0, order: 1 },
+            darkTitle: { fontSize: "clamp(36px, 10vw, 52px)" },
+            forSection: { padding: "58px 22px" },
+            callSection: { padding: "58px 22px" },
+            callGrid: { gridTemplateColumns: "1fr", gap: 16 },
+            finalCta: { padding: "58px 22px" },
+            footer: { gridTemplateColumns: "1fr", gap: 10, padding: "28px 22px" },
         }
     }
 
     if (isTablet) {
         return {
             hero: { minHeight: 720, padding: "28px 40px 0" },
-            heroInner: {
-                gridTemplateColumns: "1fr 0.78fr",
-                gap: 24,
-                minHeight: 620,
-            },
+            heroInner: { gridTemplateColumns: "1fr 0.78fr", gap: 24, minHeight: 620 },
             heroCopy: { paddingBottom: 76 },
             headline: { fontSize: "clamp(52px, 7.4vw, 72px)" },
             subheadline: { fontSize: 18 },
             heroImageWrap: { height: 580 },
-            heroImage: {
-                width: "min(430px, 115%)",
-                height: "auto",
-                maxHeight: "none",
-            },
-            workSection: { padding: "64px 40px 40px" },
-            workTop: { gridTemplateColumns: "1fr", gap: 34 },
-            workIntro: { maxWidth: 600 },
-            phoneRail: {
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                gap: 18,
-                minHeight: "auto",
-                alignItems: "stretch",
-            },
-            phoneLink: { width: "100%", minWidth: 0, maxWidth: "none" },
-            phone: { maxWidth: 164, width: "100%", margin: "0 auto" },
-            phoneScreen: { minHeight: 275 },
-            categoryRow: { gridTemplateColumns: "repeat(3, 1fr)" },
-            categoryItem: { borderBottom: "1px solid #E8E1D5" },
-            capabilitySection: {
-                padding: "78px 40px 84px",
-                gridTemplateColumns: "1fr",
-                gap: 34,
-            },
-            capabilityGrid: { gridTemplateColumns: "repeat(2, 1fr)" },
-            statementBandInner: { gridTemplateColumns: "1fr", gap: 30 },
-            statementText: { fontSize: 22 },
-            caseStudyGrid: { gridTemplateColumns: "repeat(2, 1fr)" },
-            processGrid: { gridTemplateColumns: "repeat(2, 1fr)", gap: 26 },
-            founderSection: {
-                gridTemplateColumns: "1fr",
-                gap: 38,
-                padding: "78px 40px",
-            },
-            founderCopy: { marginLeft: 0, maxWidth: 640 },
-            founderVisual: { minHeight: 500 },
+            heroImage: { width: "min(430px, 115%)", height: "auto" },
+            split: { gridTemplateColumns: "1fr", gap: 34 },
+            phoneRail: { gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 18, maxWidth: "100%" },
+            phone: { maxWidth: 150, margin: "0 auto" },
+            phoneScreen: { minHeight: 248 },
+            categoryRow: { gridTemplateColumns: "repeat(4, 1fr)" },
+            meetSection: { gridTemplateColumns: "1fr", gap: 38, padding: "78px 40px" },
+            meetCopy: { maxWidth: 720, padding: 0 },
+            meetImageWrap: { minHeight: 500 },
+            callGrid: { gridTemplateColumns: "repeat(2, 1fr)" },
             footer: { gridTemplateColumns: "repeat(2, 1fr)" },
         }
     }
@@ -945,519 +506,73 @@ const styles = {
     page: {
         width: "100%",
         minHeight: "100vh",
-        fontFamily:
-            "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         overflowX: "hidden",
     },
-    hero: {
-        position: "relative",
-        color: "#FFFFFF",
-        padding: "28px 5vw 0",
-        minHeight: 760,
-    },
-    nav: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        height: 72,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: 20,
-    },
+    hero: { position: "relative", color: "#FFFFFF", padding: "28px 5vw 0", minHeight: 760 },
+    nav: { maxWidth: 1240, margin: "0 auto", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20 },
     logoWrap: { display: "flex", alignItems: "center", gap: 12 },
-    logoImage: {
-        height: 56,
-        width: "auto",
-        display: "block",
-        objectFit: "contain",
-    },
+    logoImage: { height: 56, width: "auto", display: "block", objectFit: "contain" },
     brandName: { fontSize: 18, fontWeight: 800, letterSpacing: "-0.03em" },
-    heroInner: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        minHeight: 650,
-        display: "grid",
-        gridTemplateColumns: "1.1fr 0.9fr",
-        gap: 40,
-        alignItems: "end",
-    },
-    heroCopy: { paddingBottom: 94, maxWidth: 650 },
-    eyebrow: {
-        fontSize: 14,
-        fontWeight: 900,
-        letterSpacing: "0.08em",
-        textTransform: "uppercase",
-        marginBottom: 24,
-    },
-    headline: {
-        fontSize: "clamp(54px, 6vw, 88px)",
-        lineHeight: 0.98,
-        letterSpacing: "-0.07em",
-        margin: 0,
-        fontWeight: 900,
-    },
-    subheadline: {
-        marginTop: 26,
-        fontSize: 20,
-        lineHeight: 1.55,
-        color: "rgba(255,255,255,0.78)",
-        maxWidth: 580,
-    },
-    heroStatement: {
-        marginTop: 34,
-        fontSize: 18,
-        lineHeight: 1.4,
-        fontWeight: 800,
-        color: "rgba(255,255,255,0.92)",
-    },
-    proofRow: {
-        display: "flex",
-        gap: 14,
-        flexWrap: "wrap",
-        alignItems: "center",
-        marginTop: 46,
-        fontSize: 15,
-        fontWeight: 650,
-        color: "rgba(255,255,255,0.82)",
-    },
-    laurel: { fontSize: 36, lineHeight: 1 },
-    heroImageWrap: {
-        height: 640,
-        display: "flex",
-        alignItems: "end",
-        justifyContent: "center",
-        overflow: "hidden",
-        position: "relative",
-    },
-    heroImage: {
-        width: "min(560px, 100%)",
-        height: "auto",
-        maxHeight: "none",
-        objectFit: "contain",
-        display: "block",
-        position: "relative",
-        zIndex: 2,
-        filter: "drop-shadow(0 28px 55px rgba(0,0,0,0.34))",
-    },
-    workSection: { padding: "70px 5vw 44px", background: "#FFFFFF" },
-    workTop: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "300px 1fr",
-        gap: 36,
-        alignItems: "center",
-    },
-    workIntro: { maxWidth: 300 },
-    sectionKicker: {
-        fontSize: 13,
-        fontWeight: 900,
-        letterSpacing: "0.08em",
-        textTransform: "uppercase",
-        marginBottom: 16,
-    },
-    sectionTitle: {
-        fontSize: "clamp(38px, 4vw, 52px)",
-        lineHeight: 1.02,
-        letterSpacing: "-0.06em",
-        margin: 0,
-        fontWeight: 900,
-    },
+    heroInner: { maxWidth: 1240, margin: "0 auto", minHeight: 650, display: "grid", gridTemplateColumns: "1.08fr 0.92fr", gap: 40, alignItems: "end" },
+    heroCopy: { paddingBottom: 86, maxWidth: 720 },
+    eyebrow: { fontSize: 14, fontWeight: 900, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 },
+    headline: { fontSize: "clamp(54px, 5.8vw, 86px)", lineHeight: 0.98, letterSpacing: "-0.07em", margin: 0, fontWeight: 900 },
+    subheadline: { marginTop: 26, fontSize: 20, lineHeight: 1.55, color: "rgba(255,255,255,0.78)", maxWidth: 620 },
+    heroActions: { marginTop: 34, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 },
+    ctaButton: { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10, minHeight: 58, padding: "0 28px", borderRadius: 12, color: "#121212", textDecoration: "none", fontSize: 16, fontWeight: 900, boxShadow: "0 18px 42px rgba(0,0,0,0.18)", textAlign: "center" },
+    ctaButtonWide: { minWidth: 320 },
+    ctaMicrocopyDark: { margin: 0, color: "rgba(255,255,255,0.68)", fontSize: 13, fontWeight: 700, lineHeight: 1.4 },
+    proofRow: { display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", marginTop: 34, fontSize: 15, fontWeight: 700, color: "rgba(255,255,255,0.82)" },
+    heroImageWrap: { height: 640, display: "flex", alignItems: "end", justifyContent: "center", overflow: "hidden", position: "relative" },
+    heroImage: { width: "min(560px, 100%)", height: "auto", objectFit: "contain", display: "block", position: "relative", zIndex: 2, filter: "drop-shadow(0 28px 55px rgba(0,0,0,0.34))" },
+    claritySection: { padding: "82px 5vw", background: "#FFFFFF" },
+    split: { maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 70, alignItems: "center" },
+    sectionKicker: { fontSize: 13, fontWeight: 900, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 },
+    sectionTitle: { fontSize: "clamp(38px, 4vw, 58px)", lineHeight: 1.02, letterSpacing: "-0.06em", margin: 0, fontWeight: 900 },
     bodyText: { fontSize: 17, lineHeight: 1.6, margin: "20px 0 0" },
-    clickNote: {
-        marginTop: 22,
-        fontSize: 13,
-        fontWeight: 850,
-        letterSpacing: "0.05em",
-        textTransform: "uppercase",
-        color: "#9A7041",
-    },
-    phoneRail: {
-        display: "grid",
-        gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-        gap: "28px 20px",
-        alignItems: "start",
-        justifyItems: "center",
-        minHeight: "auto",
-        maxWidth: 760,
-        width: "100%",
-    },
-    phoneLink: {
-        display: "block",
-        textDecoration: "none",
-        color: "inherit",
-        width: "100%",
-        minWidth: 0,
-        maxWidth: 168,
-    },
-    phone: {
-        width: "100%",
-        maxWidth: 168,
-        borderRadius: 32,
-        background: "#111111",
-        padding: 8,
-        boxShadow: "0 24px 48px rgba(0,0,0,0.16)",
-    },
-    phoneScreen: {
-        minHeight: 250,
-        borderRadius: 22,
-        padding: 14,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        textAlign: "center",
-        overflow: "hidden",
-        color: "#141414",
-    },
-    phoneStatus: {
-        alignSelf: "flex-start",
-        fontSize: 9,
-        opacity: 0.7,
-        letterSpacing: "0.1em",
-    },
+    bulletPanel: { background: "#FCFBF9", border: "1px solid #EEE7DB", borderRadius: 28, padding: 30, boxShadow: "0 20px 55px rgba(30,22,14,0.08)" },
+    bulletList: { display: "grid", gap: 18 },
+    bulletItem: { display: "grid", gridTemplateColumns: "28px 1fr", gap: 12, alignItems: "start" },
+    bulletIcon: { fontSize: 34, lineHeight: 0.8, fontWeight: 900 },
+    bulletText: { fontSize: 18, lineHeight: 1.45, fontWeight: 750, color: "#161616" },
+    bulletTextLight: { color: "rgba(255,255,255,0.88)" },
+    panelCta: { marginTop: 28 },
+    workSection: { padding: "86px 5vw", background: "#F8F5EF" },
+    centerHeader: { maxWidth: 820, margin: "0 auto 48px", textAlign: "center" },
+    phoneRail: { maxWidth: 820, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "28px 20px", alignItems: "start", justifyItems: "center" },
+    phoneLink: { display: "block", textDecoration: "none", color: "inherit", width: "100%", minWidth: 0, maxWidth: 168 },
+    phone: { width: "100%", maxWidth: 168, borderRadius: 32, background: "#111111", padding: 8, boxShadow: "0 24px 48px rgba(0,0,0,0.16)" },
+    phoneScreen: { minHeight: 250, borderRadius: 22, padding: 14, display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center", textAlign: "center", overflow: "hidden", color: "#141414" },
+    phoneStatus: { alignSelf: "flex-start", fontSize: 9, opacity: 0.7, letterSpacing: "0.1em" },
     phoneIcon: { fontSize: 28, lineHeight: 1 },
-    phoneName: {
-        fontSize: 15,
-        lineHeight: 1.05,
-        fontWeight: 900,
-        letterSpacing: "-0.04em",
-    },
+    phoneName: { fontSize: 15, lineHeight: 1.05, fontWeight: 900, letterSpacing: "-0.04em" },
     phoneCategory: { fontSize: 11, fontWeight: 800, opacity: 0.82 },
     phoneCopy: { fontSize: 10, lineHeight: 1.35, opacity: 0.84 },
-    phoneButton: {
-        borderRadius: 8,
-        padding: "8px 10px",
-        width: "80%",
-        fontSize: 9,
-        fontWeight: 850,
-        color: "#121212",
-    },
-    categoryRow: {
-        maxWidth: 760,
-        margin: "46px auto 0",
-        display: "grid",
-        gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-        borderTop: "1px solid #E8E1D5",
-        borderBottom: "1px solid #E8E1D5",
-    },
-    categoryItem: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 10,
-        padding: "22px 14px",
-        fontSize: 14,
-        fontWeight: 650,
-    },
-    capabilitySection: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        padding: "84px 5vw 92px",
-        display: "grid",
-        gridTemplateColumns: "300px 1fr",
-        gap: 68,
-    },
-    capabilityIntro: { paddingTop: 8 },
-    capabilityGrid: {
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: 18,
-    },
-    capabilityCard: {
-        background: "#FCFBF9",
-        border: "1px solid #EEE7DB",
-        borderRadius: 22,
-        padding: 28,
-        minHeight: 194,
-        boxShadow: "0 18px 50px rgba(32,22,14,0.05)",
-    },
-    capabilityIcon: {
-        width: 52,
-        height: 52,
-        borderRadius: "50%",
-        background: "#F1E4D0",
-        display: "grid",
-        placeItems: "center",
-        fontSize: 22,
-        marginBottom: 22,
-    },
-    cardTitle: {
-        margin: 0,
-        fontSize: 21,
-        fontWeight: 900,
-        letterSpacing: "-0.03em",
-    },
-    cardText: { marginTop: 12, fontSize: 15, lineHeight: 1.55 },
-    statementBand: { padding: "76px 5vw", color: "#FFFFFF" },
-    statementBandInner: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 70,
-        alignItems: "center",
-    },
-    statementTitle: {
-        margin: 0,
-        fontFamily: "Georgia, 'Times New Roman', serif",
-        fontSize: "clamp(44px, 5vw, 74px)",
-        lineHeight: 0.98,
-        letterSpacing: "-0.05em",
-        fontWeight: 500,
-    },
-    statementText: {
-        margin: 0,
-        fontSize: 24,
-        lineHeight: 1.45,
-        color: "rgba(255,255,255,0.72)",
-    },
-    caseStudySection: { padding: "92px 5vw", background: "#F8F4ED" },
-    centerHeader: { maxWidth: 760, margin: "0 auto 52px", textAlign: "center" },
-    caseStudyGrid: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: 24,
-    },
-    caseStudyCard: {
-        background: "#FFFFFF",
-        border: "1px solid #ECE3D8",
-        borderRadius: 28,
-        overflow: "hidden",
-        boxShadow: "0 20px 55px rgba(30,22,14,0.08)",
-    },
-    caseStudyVisual: { height: 240, position: "relative", padding: 20 },
-    windowDots: {
-        position: "absolute",
-        top: 18,
-        left: 18,
-        display: "flex",
-        gap: 7,
-    },
-    dot: {
-        display: "block",
-        width: 8,
-        height: 8,
-        borderRadius: "50%",
-        background: "rgba(0,0,0,0.18)",
-    },
-    mockWindow: {
-        position: "absolute",
-        left: 24,
-        right: 24,
-        bottom: 24,
-        height: 150,
-        borderRadius: 14,
-        overflow: "hidden",
-        display: "grid",
-        gridTemplateColumns: "54px 1fr",
-        background: "rgba(255,255,255,0.88)",
-        border: "1px solid rgba(0,0,0,0.08)",
-    },
-    mockSidebar: { background: "rgba(0,0,0,0.08)" },
-    mockMain: { padding: 18 },
-    mockTitle: { fontSize: 16, fontWeight: 900, marginBottom: 14 },
-    mockLineLong: {
-        height: 9,
-        width: "72%",
-        borderRadius: 99,
-        background: "rgba(0,0,0,0.14)",
-        marginBottom: 8,
-    },
-    mockLineShort: {
-        height: 9,
-        width: "46%",
-        borderRadius: 99,
-        background: "rgba(0,0,0,0.12)",
-        marginBottom: 16,
-    },
-    mockGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 },
-    mockTile: {
-        display: "block",
-        height: 34,
-        borderRadius: 8,
-        background: "rgba(0,0,0,0.08)",
-    },
-    caseStudyMeta: { padding: 26 },
-    caseStudyTopline: {
-        display: "flex",
-        justifyContent: "space-between",
-        fontSize: 12,
-        fontWeight: 850,
-        textTransform: "uppercase",
-        letterSpacing: "0.05em",
-        color: "#9A9185",
-        marginBottom: 16,
-    },
-    caseStudyTitle: {
-        margin: 0,
-        fontSize: 28,
-        fontWeight: 900,
-        letterSpacing: "-0.05em",
-    },
-    caseStudyDesc: { marginTop: 12, fontSize: 15, lineHeight: 1.55 },
-    caseStudyProof: {
-        marginTop: 18,
-        fontSize: 13,
-        fontWeight: 800,
-        color: "#201A14",
-    },
-    processSection: { padding: "92px 5vw", background: "#FFFFFF" },
-    processGrid: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: 18,
-    },
-    processCard: {
-        minHeight: 176,
-        paddingTop: 28,
-        borderTop: "1px solid #D8CFC2",
-    },
-    processNum: { fontSize: 15, fontWeight: 900, marginBottom: 18 },
-    founderSection: {
-        padding: "84px 5vw",
-        display: "grid",
-        gridTemplateColumns: "420px 1fr",
-        gap: 48,
-        alignItems: "center",
-        color: "#FFFFFF",
-    },
-    founderCopy: { maxWidth: 400, marginLeft: "auto" },
-    founderTitle: {
-        margin: 0,
-        fontFamily: "Georgia, 'Times New Roman', serif",
-        fontSize: "clamp(38px, 4vw, 62px)",
-        lineHeight: 1.02,
-        letterSpacing: "-0.05em",
-        fontWeight: 500,
-    },
-    founderBody: {
-        marginTop: 24,
-        fontSize: 17,
-        lineHeight: 1.65,
-        color: "rgba(255,255,255,0.74)",
-    },
-    signature: {
-        marginTop: 26,
-        fontSize: 46,
-        color: "#C79B59",
-        fontFamily: "'Brush Script MT', cursive",
-    },
-    founderVisual: {
-        minHeight: 470,
-        position: "relative",
-        overflow: "visible",
-        borderRadius: 28,
-        background:
-            "linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
-        border: "1px solid rgba(255,255,255,0.12)",
-    },
-    founderVisualImage: {
-        position: "absolute",
-        left: 38,
-        bottom: 0,
-        width: 360,
-        height: "auto",
-        maxHeight: "none",
-        objectFit: "contain",
-        zIndex: 5,
-    },
-    laptopMock: {
-        position: "absolute",
-        right: 46,
-        bottom: 72,
-        width: "48%",
-        height: 260,
-        borderRadius: 22,
-        background: "#ECE5D8",
-        transform: "rotate(2deg)",
-        boxShadow: "0 24px 55px rgba(0,0,0,0.34)",
-        padding: 24,
-        zIndex: 2,
-    },
-    laptopTopBar: {
-        width: "62%",
-        height: 16,
-        borderRadius: 99,
-        background: "#D6CCBF",
-        marginBottom: 24,
-    },
-    laptopRows: { display: "grid", gap: 14 },
-    laptopRow: {
-        display: "block",
-        height: 18,
-        width: "100%",
-        borderRadius: 99,
-        background: "#D8CEC1",
-    },
-    laptopRowShort: {
-        display: "block",
-        height: 18,
-        width: "64%",
-        borderRadius: 99,
-        background: "#D8CEC1",
-    },
-    ctaSection: {
-        maxWidth: 1240,
-        margin: "0 auto",
-        padding: "84px 5vw",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        gap: 40,
-    },
-    ctaCopy: { maxWidth: 690 },
-    ctaAction: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-end",
-        gap: 14,
-        minWidth: 260,
-    },
-    discoveryButton: {
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 10,
-        minHeight: 56,
-        padding: "0 26px",
-        borderRadius: 999,
-        color: "#121212",
-        textDecoration: "none",
-        fontSize: 16,
-        fontWeight: 900,
-        boxShadow: "0 18px 42px rgba(0,0,0,0.16)",
-    },
-    ctaMicrocopy: {
-        margin: 0,
-        color: "#7A7065",
-        fontSize: 13,
-        fontWeight: 700,
-        lineHeight: 1.4,
-        textAlign: "right",
-    },
-    footer: {
-        padding: "34px 5vw",
-        borderTop: "1px solid #E7DED2",
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: 16,
-        color: "#766E64",
-        fontSize: 12,
-        fontWeight: 800,
-        textTransform: "uppercase",
-        letterSpacing: "0.06em",
-    },
+    phoneButton: { borderRadius: 8, padding: "8px 10px", width: "80%", fontSize: 9, fontWeight: 850, color: "#121212" },
+    categoryRow: { maxWidth: 820, margin: "46px auto 0", display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", borderTop: "1px solid #E8E1D5", borderBottom: "1px solid #E8E1D5" },
+    categoryItem: { display: "flex", alignItems: "center", justifyContent: "center", gap: 10, padding: "20px 14px", fontSize: 14, fontWeight: 650 },
+    meetSection: { padding: "0 5vw", color: "#FFFFFF", display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 0, alignItems: "stretch" },
+    meetImageWrap: { minHeight: 680, position: "relative", overflow: "hidden", background: "linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))" },
+    meetImage: { position: "absolute", left: "50%", bottom: 0, transform: "translateX(-50%)", width: 420, height: "auto", filter: "drop-shadow(0 28px 55px rgba(0,0,0,0.34))" },
+    meetCopy: { padding: "84px 0 84px 64px", maxWidth: 640 },
+    darkTitle: { margin: 0, color: "#FFFFFF", fontSize: "clamp(42px, 4.5vw, 70px)", lineHeight: 0.98, letterSpacing: "-0.06em", fontWeight: 900 },
+    darkBody: { marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.76)" },
+    forSection: { padding: "86px 5vw", background: "#FFFFFF" },
+    notForBox: { marginTop: 28, padding: 20, borderRadius: 18, background: "#121212", color: "#FFFFFF", fontWeight: 800, lineHeight: 1.45 },
+    callSection: { padding: "86px 5vw", color: "#FFFFFF" },
+    callGrid: { maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 18 },
+    callCard: { minHeight: 190, padding: 24, borderRadius: 22, border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.05)" },
+    callNum: { fontWeight: 900, marginBottom: 18 },
+    callText: { margin: 0, color: "rgba(255,255,255,0.88)", fontSize: 16, lineHeight: 1.5, fontWeight: 700 },
+    finalCta: { padding: "86px 5vw", background: "#FFFFFF", textAlign: "center" },
+    finalCtaInner: { maxWidth: 900, margin: "0 auto" },
+    finalButtonWrap: { marginTop: 34, display: "flex", justifyContent: "center" },
+    footer: { padding: "34px 5vw", borderTop: "1px solid #E7DED2", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, color: "#766E64", fontSize: 12, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em" },
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Landing_Page />);
-
   </script>
 </body>
 </html>
