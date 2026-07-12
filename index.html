@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Book a 15-minute project fit check with Robert Williams III for mobile apps, dashboards, automations, and business systems." />
-  <title>OwnMyPurpose.io | Build Clarity Call</title>
+  <meta name="description" content="Book a 15-minute technology fit check for an established business that has outgrown disconnected tools, started an app it cannot finish, or developed a process that may justify proprietary technology." />
+  <title>OwnMyPurpose.io | Technology Fit Check</title>
   <link rel="icon" type="image/png" href="https://nxlvfrxtofueceedpluc.supabase.co/storage/v1/object/public/Assets/rwiii%20logo.png" />
   <link rel="apple-touch-icon" href="https://nxlvfrxtofueceedpluc.supabase.co/storage/v1/object/public/Assets/rwiii%20logo.png" />
   <link rel="preconnect" href="https://unpkg.com" />
@@ -204,35 +204,65 @@ function Landing_Page(props) {
     ]
 
     const clarityBullets = [
-        "What your app or system actually needs to do",
-        "Which features matter now and which can wait",
-        "Where your current workflow is costing time, money, or clarity",
-        "Whether you need a mobile app, dashboard, automation, MVP, or internal tool",
-        "The smartest first version to build without overcomplicating it",
+        "What process creates real value or differentiation in your business",
+        "Where disconnected tools, manual work, or founder dependency are creating friction",
+        "Whether your current software should be configured or connected more effectively",
+        "Whether an unfinished application should be repaired, extended, rebuilt, or abandoned",
+        "Whether proprietary technology is economically justified",
+        "The least complicated solution capable of producing the required outcome",
     ]
 
     const builderBullets = [
-        "Business systems thinking",
-        "Full-stack app building",
-        "Mobile-first product design",
-        "Automation and dashboard strategy",
-        "Founder-level product ownership",
+        "Business function and workflow diagnosis",
+        "Buy, connect, repair, extend, build, or wait decisions",
+        "Full-stack application development",
+        "Mobile-first product and system architecture",
+        "Automation, dashboards, and internal operations",
+        "Founder-level product ownership and documentation",
     ]
 
     const forYouBullets = [
-        "You have an app idea but need help turning it into a real plan",
-        "Your business is running through texts, spreadsheets, DMs, or manual follow-up",
-        "You need a booking flow, dashboard, internal tool, automation, or mobile app",
-        "You already started building but the workflow is unclear",
-        "You want someone who understands both business and software",
+        "Your business operates through disconnected forms, spreadsheets, messages, calendars, and software",
+        "A valuable process still depends heavily on you or a key employee",
+        "You started building with Base44, Bubble, another no-code platform, or an AI app builder but cannot finish or stabilize the result",
+        "Your current software forces the business to work around its limitations",
+        "You have developed a repeatable method that could become a client portal, internal platform, licensed system, or SaaS product",
+        "You want an honest determination of whether custom software is actually justified",
     ]
 
     const callBullets = [
-        "We identify the real problem behind the app idea",
-        "We clarify the user, workflow, and business goal",
-        "We decide whether this needs an app, dashboard, automation, or system",
-        "I tell you what I would build first",
-        "If it makes sense, we talk about next steps",
+        "You explain the business, its customer, and the process you are trying to improve or preserve",
+        "We identify the visible friction in the current tools, workflow, or unfinished application",
+        "We discuss whether the likely direction is to buy, connect, repair, extend, build, or wait",
+        "We determine whether the business qualifies for a complete Technology Ownership Assessment",
+        "If there is a fit, I explain the assessment and next phase; if not, I give you the most responsible direction I can identify",
+    ]
+
+    const decisionOutcomes = [
+        {
+            name: "Buy",
+            description: "Use an existing product because the business need is standard and already solved effectively.",
+        },
+        {
+            name: "Connect",
+            description: "Keep the current tools but integrate them into a more coherent operating workflow.",
+        },
+        {
+            name: "Repair",
+            description: "Complete or stabilize an application that has already been started.",
+        },
+        {
+            name: "Extend",
+            description: "Remain on the existing platform while adding integrations, architecture, or custom functionality.",
+        },
+        {
+            name: "Build",
+            description: "Create proprietary technology because the process is differentiated, valuable, and poorly served by existing tools.",
+        },
+        {
+            name: "Wait",
+            description: "Delay the investment until the process, demand, offer, or expected return is better validated.",
+        },
     ]
 
     const rotations = isMobile ? [0, 0, 0, 0, 0, 0, 0, 0] : [-2, 1, -1, 2, -1, 1, -2, 2]
@@ -267,26 +297,26 @@ function Landing_Page(props) {
                 <div style={merge(styles.heroInner, r.heroInner)}>
                     <div style={merge(styles.heroCopy, r.heroCopy)}>
                         <div style={merge(styles.eyebrow, r.eyebrow, { color: accent })}>
-                            FREE 15-MINUTE PROJECT FIT CHECK
+                            FREE 15-MINUTE TECHNOLOGY FIT CHECK
                         </div>
                         <h1 style={merge(styles.headline, r.headline)}>
-                            Turn your business idea, or app concept into a <span style={{ color: accent }}>clear software plan.</span>
+                            Turn the process that makes your business different into <span style={{ color: accent }}>technology you control.</span>
                         </h1>
                         <p style={merge(styles.subheadline, r.subheadline)}>
-                            I build mobile apps, dashboards, automations, and business systems for founders and service businesses. In 9 months, I built 8 products of my own — now I help serious builders get clarity on what to build next.
+                            Own My Purpose helps established service businesses determine whether to buy, connect, repair, extend, or build technology around the way they actually operate. When custom software is justified, I engineer the system.
                         </p>
                         <div style={merge(styles.heroActions, r.heroActions)}>
-                            <CtaButton wide>Book My 15-Minute Project Fit Check</CtaButton>
-                            <p style={styles.ctaMicrocopyDark}>No pressure. We’ll clarify the problem, the system, and the best next step.</p>
+                            <CtaButton wide>Book My Technology Fit Check</CtaButton>
+                            <p style={styles.ctaMicrocopyDark}>No automatic app pitch. We’ll determine whether there is a real technology problem worth solving.</p>
                         </div>
                         <div style={merge(styles.proofRow, r.proofRow)}>
-                            <span style={{ color: accent }}>8 apps built</span>
+                            <span style={{ color: accent }}>8 products built</span>
                             <span>•</span>
-                            <span>9 months</span>
+                            <span>Business systems first</span>
                             <span>•</span>
-                            <span>Mobile apps + systems</span>
+                            <span>Mobile apps + internal platforms</span>
                             <span>•</span>
-                            <span>Business first</span>
+                            <span>Custom only when justified</span>
                         </div>
                     </div>
 
@@ -299,25 +329,25 @@ function Landing_Page(props) {
             <section style={merge(styles.claritySection, r.claritySection)}>
                 <div style={merge(styles.split, r.split)}>
                     <div>
-                        <div style={merge(styles.sectionKicker, { color: accent })}>GET READY TO CLARIFY:</div>
-                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Before you build software, get clear on the system.</h2>
+                        <div style={merge(styles.sectionKicker, { color: accent })}>BEFORE YOU BUILD</div>
+                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Your business may not need a new app. It needs the right technology decision.</h2>
                         <p style={merge(styles.bodyText, { color: muted })}>
-                            A good app starts with a clear workflow. This short call is designed to help you understand what should be built first and what should wait.
+                            Generic software, AI builders, and no-code platforms can be useful. The problem begins when your proven process no longer fits the tools—or when a self-built application becomes too fragile, limited, or complicated to operate reliably. The first step is determining what the business actually needs.
                         </p>
                     </div>
                     <div style={styles.bulletPanel}>
                         <BulletList items={clarityBullets} />
-                        <div style={styles.panelCta}><CtaButton>Book the Fit Check</CtaButton></div>
+                        <div style={styles.panelCta}><CtaButton>Check the Fit</CtaButton></div>
                     </div>
                 </div>
             </section>
 
             <section style={merge(styles.workSection, r.workSection)}>
                 <div style={merge(styles.centerHeader, r.centerHeader)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>PROOF OF BUILD</div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Eight products. One builder. Real business problems.</h2>
+                    <div style={merge(styles.sectionKicker, { color: accent })}>PROOF OF SYSTEMS ENGINEERING</div>
+                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Eight products built around real workflows—not random app ideas.</h2>
                     <p style={merge(styles.bodyText, { color: muted, maxWidth: 760, margin: "20px auto 0" })}>
-                        These are not random practice projects. Each product was built around a specific operational problem, user type, workflow, or business model.
+                        Each product began with a specific function, user, operational problem, or business model. The software was the execution layer—not the starting point. The portfolio demonstrates experience across customer systems, internal operations, assessments, automation, marketplaces, field workflows, financial decision tools, and multi-role platforms.
                     </p>
                 </div>
 
@@ -366,12 +396,12 @@ function Landing_Page(props) {
                 </div>
                 <div style={merge(styles.meetCopy, r.meetCopy)}>
                     <div style={merge(styles.sectionKicker, { color: accent })}>MEET THE BUILDER</div>
-                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>Software is my execution layer. Business is the deeper discipline.</h2>
+                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>I do not start with the app. I start with the business function.</h2>
                     <p style={styles.darkBody}>
-                        I came into software with business, operations, leadership, marketing, customer service, and product thinking already in the room. Learning to build apps gave me the execution layer.
+                        I came into software with business, operations, leadership, marketing, customer service, and product thinking already in the room. Learning to build technology gave me the execution layer.
                     </p>
                     <p style={styles.darkBody}>
-                        Now I use software to create structure: mobile apps, dashboards, automations, workflows, and business systems that solve real operational problems.
+                        Now I help businesses identify what should be purchased, connected, repaired, automated, extended, or custom-built—and I engineer the solution when proprietary technology is the right decision.
                     </p>
                     <BulletList items={builderBullets} lightMode />
                 </div>
@@ -381,24 +411,43 @@ function Landing_Page(props) {
                 <div style={merge(styles.split, r.split)}>
                     <div>
                         <div style={merge(styles.sectionKicker, { color: accent })}>WHO’S THIS FOR?</div>
-                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>For serious builders who need clarity before they spend.</h2>
+                        <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>For established businesses whose processes have outgrown their tools.</h2>
                         <p style={merge(styles.bodyText, { color: muted })}>
-                            This is for founders, service business owners, operators, and serious builders who know they need software but are not fully clear on what the first version should be.
+                            This is for service business owners, operators, and experienced founders who already understand how their business creates value but need help determining how technology should support, preserve, or expand that value.
                         </p>
                     </div>
                     <div style={styles.bulletPanel}>
                         <BulletList items={forYouBullets} />
-                        <div style={styles.notForBox}>Not for people who just want a cheap app with no strategy, no workflow clarity, and no real business purpose.</div>
+                        <div style={styles.notForBox}>Not for unvalidated ideas, speculative app concepts with no operating business, or people seeking the cheapest possible build before clarifying the problem.</div>
                     </div>
+                </div>
+            </section>
+
+            <section style={merge(styles.decisionSection, r.decisionSection)}>
+                <div style={merge(styles.centerHeader, r.centerHeader)}>
+                    <div style={merge(styles.sectionKicker, { color: accent })}>THE POSSIBLE OUTCOMES</div>
+                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>The answer is not always “build an app.”</h2>
+                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 760, margin: "20px auto 0" })}>
+                        A responsible technology decision may lead to one of six directions. The goal is to choose the least complicated path that reliably serves the business.
+                    </p>
+                </div>
+                <div style={merge(styles.decisionGrid, r.decisionGrid)}>
+                    {decisionOutcomes.map((outcome, index) => (
+                        <div key={outcome.name} style={styles.decisionCard}>
+                            <div style={merge(styles.decisionIndex, { color: accent })}>{String(index + 1).padStart(2, "0")}</div>
+                            <h3 style={styles.decisionTitle}>{outcome.name}</h3>
+                            <p style={styles.decisionText}>{outcome.description}</p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
             <section style={merge(styles.callSection, r.callSection, { background: dark })}>
                 <div style={merge(styles.centerHeader, r.centerHeader)}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>WHAT HAPPENS ON THE CALL?</div>
-                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>A short call. A clearer next step.</h2>
-                    <p style={merge(styles.darkBody, { maxWidth: 740, margin: "20px auto 0" })}>
-                        No hard pitch. No pressure. Just a practical conversation about the problem, the workflow, and whether there is a real fit.
+                    <div style={merge(styles.sectionKicker, { color: accent })}>WHAT HAPPENS DURING THE FIT CHECK?</div>
+                    <h2 style={merge(styles.darkTitle, r.darkTitle)}>A short conversation to determine whether a deeper assessment is warranted.</h2>
+                    <p style={merge(styles.darkBody, { maxWidth: 820, margin: "20px auto 0" })}>
+                        Fifteen minutes is not enough to design your entire system. It is enough to identify whether there is a meaningful business and technology problem, whether my approach fits it, and what the appropriate next step should be.
                     </p>
                 </div>
                 <div style={merge(styles.callGrid, r.callGrid)}>
@@ -413,19 +462,20 @@ function Landing_Page(props) {
 
             <section style={merge(styles.finalCta, r.finalCta)}>
                 <div style={styles.finalCtaInner}>
-                    <div style={merge(styles.sectionKicker, { color: accent })}>LIMITED BUILD SLOTS AVAILABLE</div>
-                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Need software that helps the business run?</h2>
-                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 760, margin: "20px auto 0" })}>
-                        I’m only taking a small number of serious conversations while I finish packaging my portfolio and service offers. If there’s a fit, we’ll define the next step. If not, you’ll still leave with more clarity.
+                    <div style={merge(styles.sectionKicker, { color: accent })}>LIMITED ASSESSMENT AND BUILD CAPACITY</div>
+                    <h2 style={merge(styles.sectionTitle, r.sectionTitle)}>Has your business outgrown the tools holding it together?</h2>
+                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 800, margin: "20px auto 0" })}>
+                        You may not need another subscription, another disconnected automation, or another attempt to build the application yourself. You may need a clear decision about what the business should own, what it should continue renting, and how the right system should be structured. The Technology Fit Check is the first step.
                     </p>
-                    <div style={styles.finalButtonWrap}><CtaButton wide>Book My 15-Minute Project Fit Check</CtaButton></div>
+                    <div style={styles.finalButtonWrap}><CtaButton wide>Book My Technology Fit Check</CtaButton></div>
+                    <p style={merge(styles.bodyText, { color: muted, maxWidth: 720, margin: "18px auto 0", fontSize: 14 })}>No pressure and no automatic recommendation to build custom software.</p>
                 </div>
             </section>
 
             <footer style={merge(styles.footer, r.footer)}>
                 <span>{brandName}</span>
+                <span>Business systems + proprietary technology</span>
                 <span>8 products built</span>
-                <span>Mobile apps + systems</span>
                 <span>© 2026</span>
             </footer>
         </main>
@@ -470,6 +520,8 @@ function responsive({ isMobile, isTablet }) {
             meetCopy: { padding: 0, order: 1 },
             darkTitle: { fontSize: "clamp(36px, 10vw, 52px)" },
             forSection: { padding: "58px 22px" },
+            decisionSection: { padding: "58px 22px" },
+            decisionGrid: { gridTemplateColumns: "1fr", gap: 16 },
             callSection: { padding: "58px 22px" },
             callGrid: { gridTemplateColumns: "1fr", gap: 16 },
             finalCta: { padding: "58px 22px" },
@@ -494,6 +546,7 @@ function responsive({ isMobile, isTablet }) {
             meetSection: { gridTemplateColumns: "1fr", gap: 38, padding: "78px 40px" },
             meetCopy: { maxWidth: 720, padding: 0 },
             meetImageWrap: { minHeight: 500 },
+            decisionGrid: { gridTemplateColumns: "repeat(2, 1fr)" },
             callGrid: { gridTemplateColumns: "repeat(2, 1fr)" },
             footer: { gridTemplateColumns: "repeat(2, 1fr)" },
         }
@@ -560,6 +613,12 @@ const styles = {
     darkBody: { marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.76)" },
     forSection: { padding: "86px 5vw", background: "#FFFFFF" },
     notForBox: { marginTop: 28, padding: 20, borderRadius: 18, background: "#121212", color: "#FFFFFF", fontWeight: 800, lineHeight: 1.45 },
+    decisionSection: { padding: "86px 5vw", background: "#F8F5EF" },
+    decisionGrid: { maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 },
+    decisionCard: { minHeight: 220, padding: 28, borderRadius: 24, border: "1px solid #E7DED2", background: "#FFFFFF", boxShadow: "0 18px 42px rgba(30,22,14,0.06)" },
+    decisionIndex: { fontSize: 13, fontWeight: 900, letterSpacing: "0.08em", marginBottom: 22 },
+    decisionTitle: { margin: 0, fontSize: 28, lineHeight: 1, letterSpacing: "-0.045em", fontWeight: 900, color: "#121212" },
+    decisionText: { margin: "16px 0 0", fontSize: 16, lineHeight: 1.55, color: "#6C665F", fontWeight: 650 },
     callSection: { padding: "86px 5vw", color: "#FFFFFF" },
     callGrid: { maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 18 },
     callCard: { minHeight: 190, padding: 24, borderRadius: 22, border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.05)" },
