@@ -316,30 +316,151 @@
     /* WHO */
     .not-for { margin-top: 28px; padding: 22px; border-radius: 18px; background: var(--ink); color: var(--white); font-weight: 800; line-height: 1.5; }
 
-    /* STICKY DECISIONS */
-    .decision-wrap { position: relative; background: linear-gradient(180deg, #f8f5ef, #f3ede3); }
-    .decision-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: 70px; align-items: start; }
-    .decision-intro { position: sticky; top: 90px; padding-top: 20px; }
-    .decision-steps { display: grid; gap: 22px; }
-    .decision-card {
-      min-height: 300px;
-      padding: 36px;
-      border: 1px solid #e6dbcd;
-      border-radius: 28px;
-      background: rgba(255,255,255,.84);
-      box-shadow: 0 18px 44px rgba(30,22,14,.06);
-      opacity: .54;
-      transform: scale(.96);
-      transition: opacity .35s ease, transform .35s ease, box-shadow .35s ease, background .35s ease;
-      backdrop-filter: blur(12px);
+    /* SCROLL NARRATIVE DECISIONS */
+    .decision-wrap {
+      position: relative;
+      padding: 0;
+      background: linear-gradient(180deg, #f8f5ef 0%, #f3ede3 100%);
     }
-    .decision-card.is-active { opacity: 1; transform: scale(1); background: #fff; box-shadow: var(--shadow); }
-    .decision-index { color: var(--gold); font-size: 13px; font-weight: 950; letter-spacing: .09em; }
-    .decision-card h3 { margin-top: 78px; font-size: clamp(38px, 4.3vw, 62px); }
-    .decision-card p { margin: 18px 0 0; max-width: 640px; color: var(--muted); font-size: 18px; line-height: 1.6; font-weight: 650; }
-    .decision-meter { margin-top: 34px; height: 4px; overflow: hidden; border-radius: 99px; background: rgba(15,15,16,.10); }
-    .decision-meter span { display: block; width: var(--decision-progress, 16.6%); height: 100%; background: var(--gold); transition: width .35s ease; }
-
+    .decision-story {
+      position: relative;
+      min-height: 680vh;
+    }
+    .decision-sticky {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .decision-stage {
+      width: min(1240px, calc(100% - 10vw));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .decision-copy { position: relative; z-index: 2; }
+    .decision-word {
+      margin-top: 34px;
+      font-size: clamp(74px, 10vw, 160px);
+      line-height: .82;
+      letter-spacing: -.085em;
+      font-weight: 950;
+      color: var(--ink);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .decision-copy.is-changing .decision-word,
+    .decision-panel.is-changing {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .decision-counter {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .decision-counter strong { color: var(--gold); font-size: 18px; }
+    .decision-track {
+      margin-top: 30px;
+      width: 100%;
+      height: 5px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(15,15,16,.10);
+    }
+    .decision-track span {
+      display: block;
+      width: 16.666%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width .28s ease;
+    }
+    .decision-panel {
+      position: relative;
+      min-height: 420px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid #e2d7c9;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(242,178,51,.20), transparent 28%),
+        rgba(255,255,255,.92);
+      box-shadow: var(--shadow);
+      transition: opacity .22s ease, transform .22s ease;
+      overflow: hidden;
+    }
+    .decision-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .36;
+      background-image:
+        linear-gradient(rgba(15,15,16,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,15,16,.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+    }
+    .decision-panel > * { position: relative; z-index: 1; }
+    .decision-index {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .decision-panel h3 {
+      margin-top: 120px;
+      font-size: clamp(42px, 5vw, 74px);
+      line-height: .92;
+    }
+    .decision-panel p {
+      margin: 22px 0 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.62;
+      font-weight: 650;
+    }
+    .decision-node {
+      position: absolute;
+      right: 42px;
+      top: 42px;
+      width: 54px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 14px rgba(242,178,51,.12);
+      z-index: 1;
+    }
+    .decision-step-markers {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .decision-step-marker {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+    }
+    .decision-step-marker:nth-child(1) { top: 7%; }
+    .decision-step-marker:nth-child(2) { top: 23%; }
+    .decision-step-marker:nth-child(3) { top: 39%; }
+    .decision-step-marker:nth-child(4) { top: 55%; }
+    .decision-step-marker:nth-child(5) { top: 71%; }
+    .decision-step-marker:nth-child(6) { top: 87%; }
     /* CALL */
     .call-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
     .call-card { min-height: 220px; padding: 26px; border-radius: 23px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); transform: translateY(calc(var(--section-shift, 0) * var(--direction, .01) * 1px)); }
@@ -382,11 +503,11 @@
       .founder-grid { grid-template-columns: 1fr; }
       .founder-image { min-height: 560px; order: 2; }
       .founder-copy { padding: 80px 40px; max-width: 900px; }
-      .decision-layout { grid-template-columns: 1fr; gap: 40px; }
-      .decision-intro { position: static; }
-      .decision-steps { grid-template-columns: repeat(2, 1fr); }
-      .decision-card { min-height: 280px; opacity: 1; transform: none; }
-      .decision-card h3 { margin-top: 54px; }
+      .decision-story { min-height: 620vh; }
+      .decision-stage { width: min(100% - 64px, 900px); grid-template-columns: 1fr; gap: 36px; }
+      .decision-word { font-size: clamp(64px, 15vw, 110px); }
+      .decision-panel { min-height: 340px; }
+      .decision-panel h3 { margin-top: 80px; }
       .call-grid { grid-template-columns: repeat(2, 1fr); }
       footer { grid-template-columns: repeat(2, 1fr); }
     }
@@ -433,10 +554,15 @@
       .founder-image { min-height: 430px; }
       .founder-image img { width: 315px; transform: translateX(-50%); }
       .founder-copy { padding: 64px 22px; }
-      .decision-steps { grid-template-columns: 1fr; }
-      .decision-card { min-height: 245px; padding: 28px; }
-      .decision-card h3 { margin-top: 42px; font-size: 42px; }
-      .decision-card p { font-size: 16px; }
+      .decision-story { min-height: 560vh; }
+      .decision-stage { width: calc(100% - 44px); gap: 28px; }
+      .decision-sticky { min-height: 100svh; }
+      .decision-copy .lede { font-size: 15px; }
+      .decision-word { margin-top: 24px; font-size: clamp(56px, 20vw, 88px); }
+      .decision-panel { min-height: 300px; padding: 28px; border-radius: 26px; }
+      .decision-panel h3 { margin-top: 72px; font-size: 46px; }
+      .decision-panel p { font-size: 16px; line-height: 1.55; }
+      .decision-node { width: 42px; right: 28px; top: 28px; }
       .call-grid { grid-template-columns: 1fr; }
       .call-card { min-height: auto; }
       footer { grid-template-columns: 1fr; padding: 28px 22px; }
@@ -548,21 +674,34 @@
       </div>
     </section>
 
-    <section class="section decision-wrap" id="decisions">
-      <div class="shell decision-layout">
-        <div class="decision-intro reveal">
-          <p class="kicker">The Possible Outcomes</p>
-          <h2>The answer is not always “build an app.”</h2>
-          <p class="lede">A responsible technology decision may lead to one of six directions. The goal is to choose the least complicated path that reliably serves the business.</p>
-          <div class="decision-meter"><span></span></div>
+    <section class="decision-wrap" id="decisions">
+      <div class="decision-story" id="decisionStory">
+        <div class="decision-sticky">
+          <div class="decision-stage">
+            <div class="decision-copy reveal" id="decisionCopy">
+              <p class="kicker">The Possible Outcomes</p>
+              <h2>The answer is not always “build an app.”</h2>
+              <p class="lede">A responsible technology decision may lead to one of six directions. The goal is to choose the least complicated path that reliably serves the business.</p>
+              <div class="decision-word" id="decisionWord">BUY</div>
+              <div class="decision-counter"><strong id="decisionCount">01</strong><span>of 06</span></div>
+              <div class="decision-track" aria-hidden="true"><span id="decisionProgress"></span></div>
+            </div>
+
+            <article class="decision-panel reveal" id="decisionPanel" aria-live="polite">
+              <div class="decision-node" aria-hidden="true"></div>
+              <div class="decision-index" id="decisionIndex">01 — Buy</div>
+              <h3 id="decisionTitle">Use what already works.</h3>
+              <p id="decisionDescription">Use an existing product because the business need is standard and already solved effectively.</p>
+            </article>
+          </div>
         </div>
-        <div class="decision-steps">
-          <article class="decision-card is-active" data-decision="1"><div class="decision-index">01</div><h3>Buy</h3><p>Use an existing product because the business need is standard and already solved effectively.</p></article>
-          <article class="decision-card" data-decision="2"><div class="decision-index">02</div><h3>Connect</h3><p>Keep the current tools but integrate them into a more coherent operating workflow.</p></article>
-          <article class="decision-card" data-decision="3"><div class="decision-index">03</div><h3>Repair</h3><p>Complete or stabilize an application that has already been started.</p></article>
-          <article class="decision-card" data-decision="4"><div class="decision-index">04</div><h3>Extend</h3><p>Remain on the existing platform while adding integrations, architecture, or custom functionality.</p></article>
-          <article class="decision-card" data-decision="5"><div class="decision-index">05</div><h3>Build</h3><p>Create proprietary technology because the process is differentiated, valuable, and poorly served by existing tools.</p></article>
-          <article class="decision-card" data-decision="6"><div class="decision-index">06</div><h3>Wait</h3><p>Delay the investment until the process, demand, offer, or expected return is better validated.</p></article>
+        <div class="decision-step-markers" aria-hidden="true">
+          <i class="decision-step-marker" data-step="0"></i>
+          <i class="decision-step-marker" data-step="1"></i>
+          <i class="decision-step-marker" data-step="2"></i>
+          <i class="decision-step-marker" data-step="3"></i>
+          <i class="decision-step-marker" data-step="4"></i>
+          <i class="decision-step-marker" data-step="5"></i>
         </div>
       </div>
     </section>
@@ -592,8 +731,25 @@
       const reveals = document.querySelectorAll('.reveal');
       const parallaxSections = document.querySelectorAll('[data-parallax-section]');
       const systemVisual = document.getElementById('systemVisual');
-      const decisionCards = [...document.querySelectorAll('.decision-card')];
-      const decisionMeter = document.querySelector('.decision-meter span');
+      const decisionStory = document.getElementById('decisionStory');
+      const decisionCopy = document.getElementById('decisionCopy');
+      const decisionPanel = document.getElementById('decisionPanel');
+      const decisionWord = document.getElementById('decisionWord');
+      const decisionCount = document.getElementById('decisionCount');
+      const decisionProgress = document.getElementById('decisionProgress');
+      const decisionIndex = document.getElementById('decisionIndex');
+      const decisionTitle = document.getElementById('decisionTitle');
+      const decisionDescription = document.getElementById('decisionDescription');
+      const decisions = [
+        { word: 'BUY', label: 'Buy', title: 'Use what already works.', description: 'Use an existing product because the business need is standard and already solved effectively.' },
+        { word: 'CONNECT', label: 'Connect', title: 'Make the current tools work together.', description: 'Keep the current tools but integrate them into a more coherent operating workflow.' },
+        { word: 'REPAIR', label: 'Repair', title: 'Finish or stabilize what already exists.', description: 'Complete or stabilize an application that has already been started.' },
+        { word: 'EXTEND', label: 'Extend', title: 'Add capability without starting over.', description: 'Remain on the existing platform while adding integrations, architecture, or custom functionality.' },
+        { word: 'BUILD', label: 'Build', title: 'Own the technology when the process justifies it.', description: 'Create proprietary technology because the process is differentiated, valuable, and poorly served by existing tools.' },
+        { word: 'WAIT', label: 'Wait', title: 'Delay the investment until the business is ready.', description: 'Delay the investment until the process, demand, offer, or expected return is better validated.' }
+      ];
+      let activeDecision = -1;
+      let decisionTimer;
 
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -605,16 +761,26 @@
       }, { threshold: 0.12 });
       reveals.forEach((item) => revealObserver.observe(item));
 
-      const decisionObserver = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        decisionCards.forEach((card) => card.classList.toggle('is-active', card === visible.target));
-        const step = Number(visible.target.dataset.decision || 1);
-        decisionMeter.style.setProperty('--decision-progress', `${(step / decisionCards.length) * 100}%`);
-      }, { rootMargin: '-28% 0px -28% 0px', threshold: [0.2, 0.45, 0.7] });
-      decisionCards.forEach((card) => decisionObserver.observe(card));
+      const setDecision = (index) => {
+        const next = Math.max(0, Math.min(decisions.length - 1, index));
+        if (next === activeDecision) return;
+        activeDecision = next;
+        decisionCopy.classList.add('is-changing');
+        decisionPanel.classList.add('is-changing');
+        window.clearTimeout(decisionTimer);
+        decisionTimer = window.setTimeout(() => {
+          const item = decisions[next];
+          const number = String(next + 1).padStart(2, '0');
+          decisionWord.textContent = item.word;
+          decisionCount.textContent = number;
+          decisionProgress.style.width = `${((next + 1) / decisions.length) * 100}%`;
+          decisionIndex.textContent = `${number} — ${item.label}`;
+          decisionTitle.textContent = item.title;
+          decisionDescription.textContent = item.description;
+          decisionCopy.classList.remove('is-changing');
+          decisionPanel.classList.remove('is-changing');
+        }, 140);
+      };
 
       if (reducedMotion) return;
 
@@ -634,6 +800,13 @@
           const raw = (window.innerHeight * .82 - rect.top) / (window.innerHeight * .72);
           const progress = Math.max(0, Math.min(1, raw));
           systemVisual.style.setProperty('--progress', progress.toFixed(3));
+        }
+
+        if (decisionStory) {
+          const rect = decisionStory.getBoundingClientRect();
+          const scrollable = Math.max(1, rect.height - window.innerHeight);
+          const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollable));
+          setDecision(Math.floor(progress * decisions.length));
         }
         ticking = false;
       };
