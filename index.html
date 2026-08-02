@@ -878,7 +878,8 @@
 
         if (decisionStory) {
           const rect = decisionStory.getBoundingClientRect();
-          const scrollable = Math.max(1, rect.height - window.innerHeight);
+          const viewportHeight = window.visualViewport?.height || window.innerHeight;
+          const scrollable = Math.max(1, rect.height - viewportHeight);
           const progress = Math.max(0, Math.min(0.9999, -rect.top / scrollable));
           setDecision(Math.floor(progress * decisions.length));
         }
