@@ -554,15 +554,89 @@
       .founder-image { min-height: 430px; }
       .founder-image img { width: 315px; transform: translateX(-50%); }
       .founder-copy { padding: 64px 22px; }
-      .decision-story { min-height: 560vh; }
-      .decision-stage { width: calc(100% - 44px); gap: 28px; }
-      .decision-sticky { min-height: 100svh; }
-      .decision-copy .lede { font-size: 15px; }
-      .decision-word { margin-top: 24px; font-size: clamp(56px, 20vw, 88px); }
-      .decision-panel { min-height: 300px; padding: 28px; border-radius: 26px; }
-      .decision-panel h3 { margin-top: 72px; font-size: 46px; }
-      .decision-panel p { font-size: 16px; line-height: 1.55; }
-      .decision-node { width: 42px; right: 28px; top: 28px; }
+      /* Mobile decision-scrolling section */
+.decision-story {
+  min-height: 650vh;
+}
+
+.decision-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  height: auto;
+  overflow: visible;
+  align-items: flex-start;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    0
+    max(32px, env(safe-area-inset-bottom));
+}
+
+.decision-stage {
+  width: calc(100% - 44px);
+  min-height: calc(
+    100svh
+    - max(24px, env(safe-area-inset-top))
+    - max(32px, env(safe-area-inset-bottom))
+  );
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-content: center;
+}
+
+.decision-copy .kicker {
+  margin-bottom: 10px;
+}
+
+.decision-copy h2 {
+  font-size: clamp(34px, 9vw, 44px);
+  line-height: .98;
+}
+
+.decision-copy .lede {
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.decision-word {
+  margin-top: 20px;
+  font-size: clamp(54px, 18vw, 82px);
+  line-height: .84;
+}
+
+.decision-counter {
+  margin-top: 18px;
+}
+
+.decision-track {
+  margin-top: 20px;
+}
+
+.decision-panel {
+  min-height: 270px;
+  padding: 24px;
+  border-radius: 24px;
+  justify-content: flex-start;
+}
+
+.decision-panel h3 {
+  margin-top: 76px;
+  font-size: clamp(36px, 10.5vw, 46px);
+  line-height: .94;
+}
+
+.decision-panel p {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.48;
+}
+
+.decision-node {
+  width: 38px;
+  right: 24px;
+  top: 24px;
+}
       .call-grid { grid-template-columns: 1fr; }
       .call-card { min-height: auto; }
       footer { grid-template-columns: 1fr; padding: 28px 22px; }
