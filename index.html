@@ -52,6 +52,25 @@
       letter-spacing: .1em;
       text-transform: uppercase;
     }
+
+    .location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: -4px 0 22px;
+  color: rgba(255,255,255,.76);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.location-tag svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: var(--gold);
+  stroke-width: 2.4;
+}
     h1, h2, h3, p { margin-top: 0; }
     h1, h2, h3 { letter-spacing: -.055em; }
     h1 { margin-bottom: 0; font-size: clamp(54px, 6.1vw, 92px); line-height: .94; font-weight: 950; }
@@ -665,7 +684,23 @@
       <div class="hero-inner shell">
         <div class="hero-copy reveal">
           <p class="kicker">Free 15-Minute Technology Fit Check</p>
-          <h1>Turn the process that makes your business different into <span class="accent">technology you control.</span></h1>
+
+<div class="location-tag" aria-label="Located in Atlanta, Georgia">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+  <span>Atlanta, GA</span>
+</div>
+
+<h1>Turn the process that makes your business different into <span class="accent">technology you control.</span></h1>
           <p class="lede lede--light">Own My Purpose helps businesses determine whether to buy, connect, repair, extend, or build technology around how they actually operate. When custom software is justified, I engineer the system.</p>
           <div class="hero-actions">
             <a class="btn btn--wide" href="https://forms.gle/QxZTNp9LZdERfTJw5">Book My Technology Fit Check <span>→</span></a>
