@@ -504,7 +504,33 @@
     .final-action { margin-top: 34px; }
     .final-note { margin: 18px auto 0; color: var(--muted); font-size: 14px; }
 
-    footer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 34px 5vw; border-top: 1px solid var(--line); color: #766e64; font-size: 12px; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+    footer {
+  display: grid;
+  grid-template-columns: 1fr .7fr 1.6fr .8fr;
+  gap: 24px;
+  align-items: center;
+  padding: 34px 5vw;
+  border-top: 1px solid var(--line);
+  color: #766e64;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.footer-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer-location svg {
+  width: 15px;
+  height: 15px;
+  color: var(--gold);
+  stroke-width: 2.4;
+  flex: 0 0 auto;
+}
 
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.is-visible { opacity: 1; transform: none; }
@@ -830,7 +856,27 @@
       <div class="shell final-inner reveal"><p class="kicker">Limited Assessment and Build Capacity</p><h2>Has your business outgrown the tools holding it together?</h2><p class="lede">You may not need another subscription, another disconnected automation, or another attempt to build the application yourself. You may need a clear decision about what the business should own, what it should continue renting, and how the right system should be structured. The Technology Fit Check is the first step.</p><div class="final-action"><a class="btn btn--wide" href="https://forms.gle/QxZTNp9LZdERfTJw5">Book My Technology Fit Check <span>→</span></a></div><p class="final-note">No pressure and no automatic recommendation to build custom software.</p></div>
     </section>
 
-    <footer><span>© 2026 OwnMyPurpose.io</span><span>Business systems + proprietary technology</span><span>20 products built</span></footer>
+    <footer>
+  <span>© 2026 Own My Purpose</span>
+
+  <span class="footer-location">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </svg>
+    Atlanta, GA
+  </span>
+
+  <span>Business systems + proprietary technology</span>
+  <span>20 products built</span>
+</footer>
   </main>
 
   <script>
