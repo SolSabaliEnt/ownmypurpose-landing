@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1200,height=630,initial-scale=1" />
+  <title>Own My Purpose Social Preview</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f8f5ef;color:#111}
+    .card{position:relative;width:1200px;height:630px;overflow:hidden;background:
+      radial-gradient(circle at 82% 44%,rgba(242,178,51,.16),transparent 29%),
+      linear-gradient(135deg,#fffdf9 0%,#f8f5ef 58%,#f4ede2 100%)}
+    .grid{position:relative;z-index:2;display:grid;grid-template-columns:500px 700px;width:100%;height:100%}
+    .copy{padding:44px 24px 38px 52px;display:flex;flex-direction:column}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:72px;height:72px;object-fit:cover;border-radius:50%;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .brand span{font-size:16px;font-weight:900;letter-spacing:.16em}
+    .brand-line{width:150px;height:3px;margin-top:8px;background:#f2b233;border-radius:99px}
+    .eyebrow{margin-top:34px;color:#9a7022;font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    h1{margin:11px 0 0;font-size:47px;line-height:.98;letter-spacing:-.055em;font-weight:950}
+    h1 em{font-style:normal;color:#c98a16}
+    .sub{margin:23px 0 0;max-width:420px;color:#686159;font-size:18px;line-height:1.5}
+    .proof{margin-top:24px;font-size:11px;font-weight:900;letter-spacing:.09em;color:#151515}
+    .builds{margin-top:9px;color:#6c665f;font-size:14px}
+    .cta{margin-top:auto;display:inline-flex;width:max-content;align-items:center;gap:16px;padding:15px 22px;border-radius:999px;background:#111;color:#fff;border:2px solid #f2b233;font-size:17px;font-weight:900}
+    .cta b{color:#f2b233;font-size:21px}
+    .visual{position:relative;display:flex;align-items:center;justify-content:center;padding:54px 26px 42px 8px}
+    .visual:before{content:"";position:absolute;width:610px;height:610px;right:-145px;top:20px;border-radius:50%;border:1px solid rgba(242,178,51,.22);box-shadow:inset 0 0 90px rgba(242,178,51,.06)}
+    .visual img{position:relative;z-index:2;width:668px;height:auto;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(32,24,12,.16))}
+    .selected{position:absolute;right:48px;bottom:34px;z-index:3;text-align:right}
+    .selected strong{display:block;color:#a97922;font-size:11px;letter-spacing:.12em}
+    .selected span{display:block;margin-top:5px;color:#6c665f;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="grid">
+      <section class="copy">
+        <div class="brand">
+          <img src="/images/rwiii%20logo.png" alt="Own My Purpose" />
+          <div><span>OWN MY PURPOSE</span><div class="brand-line"></div></div>
+        </div>
+        <div class="eyebrow">Business systems · custom software</div>
+        <h1>Custom software that makes service businesses <em>run better.</em></h1>
+        <p class="sub">Mobile apps, dashboards, automations, and operating systems built around real business problems.</p>
+        <div class="proof">REAL BUILDS. REAL SYSTEMS. REAL EXECUTION.</div>
+        <div class="builds">Cleanr · Keep n Track · Maatra · (re:)</div>
+        <div class="cta">ownmypurpose.io <b>→</b></div>
+      </section>
+      <section class="visual">
+        <img src="/images/_phones.png" alt="" />
+      </section>
+    </div>
+    <div class="selected"><strong>SELECTED WORK</strong><span>Built for real use.</span></div>
+  </main>
+</body>
+</html>

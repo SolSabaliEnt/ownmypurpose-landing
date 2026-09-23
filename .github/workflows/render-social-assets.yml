@@ -1,0 +1,63 @@
+name: Render Own My Purpose Social Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "social-card.html"
+      - "scripts/render-social-preview.mjs"
+      - "assets/ownmypurpose-favicon.base64"
+      - ".github/workflows/render-social-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.48.0
+          npx playwright install --with-deps chromium
+
+      - name: Restore approved favicon
+        run: |
+          mkdir -p images
+          base64 -d assets/ownmypurpose-favicon.base64 > images/ownmypurpose-favicon.png
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 4173 >/tmp/omp-http.log 2>&1 &
+          echo $! > /tmp/omp-http.pid
+          sleep 2
+
+      - name: Render exact-site social preview
+        run: node scripts/render-social-preview.mjs
+
+      - name: Stop static server
+        if: always()
+        run: kill $(cat /tmp/omp-http.pid) || true
+
+      - name: Commit rendered assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/ownmypurpose-favicon.png images/ownmypurpose-social-preview.png
+          if git diff --cached --quiet; then
+            echo "No social asset changes."
+            exit 0
+          fi
+          git commit -m "Render Own My Purpose social assets [skip ci]"
+          git push
