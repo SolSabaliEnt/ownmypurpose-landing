@@ -292,19 +292,130 @@
       background: radial-gradient(circle, rgba(242,178,51,.12), transparent 68%);
       transform: translateY(calc(var(--section-shift, 0) * .05px));
     }
-    .phone-rail { position: relative; z-index: 2; max-width: 930px; margin: 54px auto 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px 24px; }
+    .phone-rail { position: relative; z-index: 2; max-width: 1080px; margin: 54px auto 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 38px 24px; }
     .phone-link { display: block; min-width: 0; color: inherit; text-decoration: none; transition: transform .3s ease; }
-    .phone-link:nth-child(odd) { transform: translateY(calc(var(--section-shift, 0) * -.025px)) rotate(-1.5deg); }
-    .phone-link:nth-child(even) { transform: translateY(calc(var(--section-shift, 0) * .018px)) rotate(1.5deg); }
+    .phone-link:nth-child(odd) { transform: translateY(calc(var(--section-shift, 0) * -.025px)) rotate(-1.1deg); }
+    .phone-link:nth-child(even) { transform: translateY(calc(var(--section-shift, 0) * .018px)) rotate(1.1deg); }
     .phone-link:hover { transform: translateY(-10px) rotate(0deg); }
-    .phone { padding: 8px; border-radius: 34px; background: #111; box-shadow: 0 24px 48px rgba(0,0,0,.16); }
-    .phone-screen { min-height: 278px; border-radius: 25px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; overflow: hidden; color: #151515; }
-    .phone-status { align-self: flex-start; font-size: 9px; opacity: .7; letter-spacing: .1em; }
-    .phone-icon { font-size: 32px; line-height: 1; }
-    .phone-name { font-size: 16px; line-height: 1.05; font-weight: 950; letter-spacing: -.04em; }
-    .phone-category { font-size: 11px; font-weight: 850; opacity: .82; }
-    .phone-copy { font-size: 10px; line-height: 1.4; opacity: .86; }
-    .phone-btn { width: 82%; padding: 8px; border-radius: 9px; background: var(--gold); font-size: 9px; font-weight: 900; }
+    .phone { padding: 7px; border-radius: 34px; background: #101114; box-shadow: 0 26px 54px rgba(0,0,0,.18); }
+    .phone-screen { height: 390px; border-radius: 27px; overflow: hidden; position: relative; text-align: left; color: #151515; background: #fff; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .phone-meta { padding: 15px 3px 0; text-align: left; }
+    .phone-meta strong { display:block; font-size:15px; line-height:1.1; font-weight:950; letter-spacing:-.025em; color:#151515; }
+    .phone-meta span { display:block; margin-top:4px; font-size:9px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:#8f6d33; }
+    .phone-meta p { margin:7px 0 0; font-size:10px; line-height:1.45; color:#666; }
+
+    .mini-topline { height: 20px; display:flex; align-items:center; justify-content:space-between; padding:0 12px; font-size:6.8px; font-weight:800; letter-spacing:.02em; }
+    .mini-dots { display:flex; gap:3px; align-items:center; }
+    .mini-dots i { width:3px; height:3px; border-radius:50%; background:currentColor; opacity:.6; }
+    .mini-row { display:flex; align-items:center; }
+    .mini-between { display:flex; align-items:center; justify-content:space-between; }
+    .mini-card { border-radius:12px; }
+    .mini-pill { display:inline-flex; align-items:center; border-radius:999px; font-size:6.5px; font-weight:800; line-height:1; padding:4px 6px; }
+    .mini-nav { position:absolute; left:0; right:0; bottom:0; height:46px; background:#fff; border-top:1px solid rgba(15,23,42,.08); display:grid; align-items:center; z-index:3; }
+    .mini-nav span { text-align:center; font-size:6px; font-weight:750; color:#737b87; line-height:1.2; }
+    .mini-nav b { display:block; margin:0 auto 2px; font-size:12px; font-weight:500; line-height:1; }
+
+    /* Cleanr — mirrors the customer home app */
+    .cleanr-ui { background:linear-gradient(180deg,#f6fbf3 0%,#f7f8fb 42%); color:#0B1220; }
+    .cleanr-brandbar { height:39px; padding:5px 12px; border-bottom:1px solid rgba(14,18,36,.08); background:#f6fbf3; }
+    .cleanr-brandbar img { display:block; height:24px; width:auto; max-width:88px; object-fit:contain; object-position:left center; }
+    .cleanr-bell { width:22px; height:22px; border-radius:50%; background:#fff; border:1px solid #E5E7EB; display:grid; place-items:center; font-size:9px; color:#667085; }
+    .cleanr-body { padding:14px 12px 54px; }
+    .cleanr-eyebrow { font-size:6.5px; font-weight:800; letter-spacing:.14em; color:#667085; text-transform:uppercase; }
+    .cleanr-title { margin-top:3px; font-size:17px; font-weight:700; letter-spacing:-.035em; }
+    .cleanr-sub { margin-top:3px; font-size:7px; line-height:1.45; color:#667085; }
+    .cleanr-next { margin-top:13px; padding:12px; background:#f3faf1; border:1px solid #DCEED7; border-radius:14px; }
+    .cleanr-next .label { font-size:6px; font-weight:800; letter-spacing:.08em; color:#166534; text-transform:uppercase; }
+    .cleanr-next h4 { margin:5px 0 0; font-size:12px; line-height:1.15; letter-spacing:-.02em; }
+    .cleanr-next p { margin:3px 0 0; font-size:6.5px; line-height:1.4; color:#667085; }
+    .cleanr-service { margin-top:10px; padding:9px 0; border-top:1px solid #DCEED7; border-bottom:1px solid #DCEED7; }
+    .cleanr-service strong { font-size:8px; display:block; }
+    .cleanr-service span { margin-top:2px; display:block; font-size:6px; color:#667085; }
+    .cleanr-btn { margin-top:9px; width:100%; border-radius:9px; padding:8px; text-align:center; background:#8DCC64; color:#0B1220; font-size:6.5px; font-weight:850; }
+    .cleanr-urgent { margin-top:9px; padding:8px 5px; border-top:1px solid rgba(245,158,11,.3); border-bottom:1px solid rgba(245,158,11,.3); background:#FFFBEB; color:#78350F; }
+    .cleanr-urgent strong { font-size:7px; display:block; }
+    .cleanr-urgent span { display:block; margin-top:2px; font-size:5.8px; color:#92400E; }
+    .cleanr-list { margin-top:10px; overflow:hidden; border:1px solid #E4E7EC; border-radius:11px; background:#fff; }
+    .cleanr-list div { min-height:33px; padding:7px 8px; border-top:1px solid #E4E7EC; }
+    .cleanr-list div:first-child { border-top:0; }
+    .cleanr-list strong { font-size:6.8px; display:block; }
+    .cleanr-list span { font-size:5.5px; color:#667085; }
+    .cleanr-ui .mini-nav { grid-template-columns:repeat(4,1fr); }
+    .cleanr-ui .mini-nav .active { color:#8DCC64; }
+
+    /* Keep n Track — mirrors the mobile dispatcher workspace */
+    .knt-ui { background:#f1f5f9; color:#0f172a; }
+    .knt-header { height:45px; padding:7px 10px; background:#004185; color:#fff; display:flex; align-items:center; justify-content:space-between; }
+    .knt-header img { display:block; width:96px; height:auto; filter:brightness(0) invert(1); }
+    .knt-header .round { width:22px; height:22px; border:1px solid rgba(255,255,255,.25); border-radius:8px; display:grid; place-items:center; font-size:9px; }
+    .knt-body { padding:12px 10px 52px; }
+    .knt-kicker { font-size:6px; color:#64748b; }
+    .knt-title { margin-top:2px; font-size:15px; font-weight:900; letter-spacing:-.035em; }
+    .knt-cta { margin-top:9px; background:#FFA500; color:#111827; border-radius:8px; padding:7px 8px; text-align:center; font-size:6.5px; font-weight:900; }
+    .knt-metrics { margin-top:9px; display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
+    .knt-metric { padding:8px; background:#fff; border:1px solid #e2e8f0; border-radius:9px; }
+    .knt-metric strong { display:block; font-size:12px; line-height:1; }
+    .knt-metric span { display:block; margin-top:3px; font-size:5.8px; color:#64748b; font-weight:700; }
+    .knt-panel { margin-top:8px; overflow:hidden; border:1px solid #e2e8f0; border-radius:10px; background:#fff; }
+    .knt-panel-head { padding:8px; border-bottom:1px solid #e2e8f0; }
+    .knt-panel-head strong { font-size:7.5px; }
+    .knt-panel-head span { display:block; margin-top:2px; font-size:5.5px; color:#64748b; }
+    .knt-load { padding:8px; border-bottom:1px solid #f1f5f9; }
+    .knt-load:last-child { border-bottom:0; }
+    .knt-load .route { font-size:7px; font-weight:850; }
+    .knt-load .ref { font-size:5.5px; color:#004185; font-weight:800; }
+    .knt-load .meta { margin-top:2px; font-size:5.3px; color:#64748b; }
+    .knt-ui .mini-nav { grid-template-columns:repeat(5,1fr); }
+    .knt-ui .mini-nav .active { color:#004185; }
+
+    /* Maatra — mirrors the mobile operations dashboard */
+    .maatra-ui { background:#F4F6F8; color:#101318; font-family:Outfit,Inter,ui-sans-serif,system-ui,sans-serif; }
+    .maatra-brandbar { height:42px; background:rgba(255,255,255,.96); border-bottom:1px solid #E2E6EB; padding:6px 10px; }
+    .maatra-brandbar img { display:block; width:108px; height:28px; object-fit:contain; object-position:left center; }
+    .maatra-body { padding:12px 10px 57px; }
+    .maatra-date { display:inline-flex; border-radius:999px; padding:4px 6px; background:#E8EEFF; color:#356DF3; font-size:5.7px; font-weight:800; }
+    .maatra-title { margin-top:7px; font-size:15px; line-height:1.1; font-weight:800; letter-spacing:-.025em; }
+    .maatra-sub { margin-top:3px; font-size:6px; line-height:1.4; color:#6F7784; }
+    .maatra-metrics { margin-top:9px; display:grid; grid-template-columns:repeat(2,1fr); gap:6px; }
+    .maatra-metric { background:#fff; border:1px solid #E2E6EB; border-radius:9px; padding:8px; }
+    .maatra-metric span { font-size:5.5px; color:#6F7784; }
+    .maatra-metric strong { display:block; margin-top:2px; font-size:10.5px; letter-spacing:-.03em; }
+    .maatra-metric em { display:block; margin-top:3px; font-size:5px; font-style:normal; }
+    .maatra-queue-title { margin-top:10px; font-size:5.8px; color:#A3AAB4; font-weight:850; letter-spacing:.12em; text-transform:uppercase; }
+    .maatra-queue { margin-top:5px; overflow:hidden; border:1px solid #E2E6EB; border-radius:10px; background:#fff; }
+    .maatra-task { padding:8px; border-bottom:1px solid #E2E6EB; }
+    .maatra-task:last-child { border-bottom:0; }
+    .maatra-task strong { display:block; font-size:6.5px; line-height:1.3; }
+    .maatra-task span { display:block; margin-top:2px; font-size:5.2px; color:#6F7784; }
+    .maatra-task b { margin-top:4px; display:inline-flex; border-radius:999px; padding:3px 5px; font-size:5px; background:#FFF0D7; color:#B86A17; }
+    .maatra-ui .mini-nav { left:7px; right:7px; bottom:7px; height:42px; grid-template-columns:repeat(5,1fr); border:1px solid #DCE1E7; border-radius:15px; box-shadow:0 7px 18px rgba(16,24,40,.12); }
+    .maatra-ui .mini-nav .active { color:#7E4D18; background:#FAEEDC; border-radius:10px; margin:3px; padding:3px 0; }
+
+    /* (re:) — mirrors the family home */
+    .re-ui { background:#F7F9FC; color:#172033; font-family:Nunito,Inter,ui-sans-serif,system-ui,sans-serif; }
+    .re-hero { padding:11px 10px 13px; background:linear-gradient(145deg,#17324D 0%,#2F6B8A 56%,#2F8F83 100%); color:#fff; }
+    .re-brandrow img { display:block; width:64px; height:auto; filter:brightness(0) invert(1); }
+    .re-icons { display:flex; gap:4px; }
+    .re-icons i { width:20px; height:20px; border-radius:50%; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.12); display:grid; place-items:center; font-style:normal; font-size:7px; }
+    .re-family { margin-top:10px; font-size:6px; font-weight:800; color:rgba(226,180,74,.95); }
+    .re-greeting { margin-top:2px; font-size:13px; font-weight:900; }
+    .re-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-top:10px; }
+    .re-stat { background:rgba(255,255,255,.1); border-radius:8px; padding:6px 2px; text-align:center; }
+    .re-stat strong { display:block; font-size:10px; }
+    .re-stat span { font-size:4.9px; color:rgba(255,255,255,.72); font-weight:800; }
+    .re-body { padding:10px 9px 52px; }
+    .re-actions { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; }
+    .re-action { text-align:center; }
+    .re-action i { margin:auto; width:29px; height:29px; border-radius:9px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.08); display:grid; place-items:center; font-style:normal; font-size:9px; color:#2F6B8A; }
+    .re-action span { margin-top:3px; display:block; font-size:4.8px; color:#667085; font-weight:800; }
+    .re-section { margin-top:11px; }
+    .re-section-head { font-size:7px; font-weight:900; }
+    .re-event { margin-top:5px; padding:9px; border-radius:10px; background:#fff; border:1px solid #D9E2E8; box-shadow:0 2px 8px rgba(23,32,51,.06); }
+    .re-event .tag { font-size:5px; color:#2F8F83; font-weight:850; }
+    .re-event strong { display:block; margin-top:3px; font-size:7.5px; }
+    .re-event span { display:block; margin-top:2px; font-size:5.3px; color:#667085; }
+    .re-ui .mini-nav { grid-template-columns:repeat(5,1fr); }
+    .re-ui .mini-nav .active { color:#2F6B8A; }
 
     /* FOUNDER */
     .founder { overflow: hidden; }
@@ -543,8 +654,8 @@
       .hero-portrait { height: 590px; }
       .two-col { grid-template-columns: 1fr; gap: 40px; }
       .system-visual { min-height: 520px; }
-      .phone-rail { grid-template-columns: repeat(4, 1fr); gap: 24px 16px; }
-      .phone-screen { min-height: 245px; }
+      .phone-rail { grid-template-columns: repeat(4, 1fr); gap: 28px 16px; }
+      .phone-screen { height: 350px; }
       .founder-grid { grid-template-columns: 1fr; }
       .founder-image { min-height: 560px; order: 2; }
       .founder-copy { padding: 80px 40px; max-width: 900px; }
@@ -591,11 +702,12 @@
       .bullet { font-size: 16px; }
       .phone-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; margin-top: 36px; }
       .phone-link:nth-child(n) { transform: none; }
-      .phone { border-radius: 27px; padding: 7px; }
-      .phone-screen { min-height: 225px; border-radius: 21px; padding: 12px; }
-      .phone-icon { font-size: 27px; }
-      .phone-name { font-size: 15px; }
-      .phone-copy { font-size: 9.5px; }
+      .phone { border-radius: 27px; padding: 6px; }
+      .phone-screen { height: 318px; border-radius: 21px; }
+      .phone-meta { padding-top: 11px; }
+      .phone-meta strong { font-size: 13px; }
+      .phone-meta p { font-size: 9px; }
+      .cleanr-body, .knt-body, .maatra-body, .re-body { transform-origin: top left; }
       .founder-image { min-height: 430px; }
       .founder-image img { width: 315px; transform: translateX(-50%); }
       .founder-copy { padding: 64px 22px; }
@@ -776,10 +888,90 @@
         <p class="lede">Better customer experiences. Cleaner operations. Faster decisions. Less work falling through the cracks.</p>
       </div>
       <div class="shell phone-rail">
-        <a class="phone-link reveal" href="https://cleanr.app" target="_blank" rel="noreferrer"><div class="phone"><div class="phone-screen" style="background:linear-gradient(160deg,#e7effb,#96a9c6)"><div class="phone-status">SELECTED</div><div class="phone-icon">⌂</div><div class="phone-name">Cleanr</div><div class="phone-category">Service Operations</div><div class="phone-copy">Book faster. Run cleaner. Keep customers, providers, and operations moving together.</div><div class="phone-btn">Explore</div></div></div></a>
-        <a class="phone-link reveal" href="https://keepntrack.ownmypurpose.io" target="_blank" rel="noreferrer"><div class="phone"><div class="phone-screen" style="background:linear-gradient(160deg,#e9f0f7,#7d98ae)"><div class="phone-status">SELECTED</div><div class="phone-icon">↔</div><div class="phone-name">Keep n Track</div><div class="phone-category">Dispatch & Logistics</div><div class="phone-copy">Turn dispatch chaos into faster matching, sharper bids, and better load visibility.</div><div class="phone-btn">Explore</div></div></div></a>
-        <a class="phone-link reveal" href="https://maatra.ownmypurpose.io/" target="_blank" rel="noreferrer"><div class="phone"><div class="phone-screen" style="background:linear-gradient(160deg,#f7f1e6,#d9b77f)"><div class="phone-status">SELECTED</div><div class="phone-icon">M</div><div class="phone-name">Maatra</div><div class="phone-category">Service Business Operations</div><div class="phone-copy">Run lean. Reduce admin. Keep customers, jobs, teams, invoices, and payments under control.</div><div class="phone-btn">Explore</div></div></div></a>
-        <a class="phone-link reveal" href="https://continuity.ownmypurpose.io" target="_blank" rel="noreferrer"><div class="phone"><div class="phone-screen" style="background:linear-gradient(160deg,#f4eee6,#bda88e)"><div class="phone-status">SELECTED</div><div class="phone-icon">∞</div><div class="phone-name">(re:)</div><div class="phone-category">Family Continuity</div><div class="phone-copy">Keep important people, information, and responsibilities from getting lost over time.</div><div class="phone-btn">Explore</div></div></div></a>
+        <a class="phone-link reveal" href="https://cleanr.app" target="_blank" rel="noreferrer" aria-label="Explore Cleanr">
+          <div class="phone"><div class="phone-screen cleanr-ui">
+            <div class="mini-topline"><span>9:41</span><span>● ◔ ▰</span></div>
+            <div class="cleanr-brandbar mini-between"><img src="https://cleanr.app/media/Cleanr_wordmark_black.png" alt="Cleanr"><span class="cleanr-bell">◌</span></div>
+            <div class="cleanr-body">
+              <div class="cleanr-eyebrow">Hi, Robert</div>
+              <div class="cleanr-title">We've got you.</div>
+              <div class="cleanr-sub">Your next important update is right here.</div>
+              <div class="cleanr-next">
+                <div class="label">Next cleaning</div>
+                <h4>You're all set.</h4>
+                <p>Maya is scheduled for your next visit.</p>
+                <div class="cleanr-service"><strong>Standard cleaning</strong><span>Thu, Sep 24 · 10:00 AM</span><span>With Maya</span></div>
+                <div class="cleanr-btn">View cleaning</div>
+              </div>
+              <div class="cleanr-urgent"><strong>Need it sooner?</strong><span>Priority availability within 48 hours · +25%</span></div>
+              <div class="cleanr-list"><div><strong>Book another cleaning</strong><span>Pick a day that works for you.</span></div><div><strong>All bookings</strong><span>Past and upcoming cleanings.</span></div></div>
+            </div>
+            <div class="mini-nav"><span class="active"><b>⌂</b>Home</span><span><b>□</b>Bookings</span><span><b>✦</b>My CSP</span><span><b>○</b>Profile</span></div>
+          </div></div>
+          <div class="phone-meta"><strong>Cleanr</strong><span>Service Operations</span><p>Booking, provider relationships, customer updates, and fulfillment in one mobile experience.</p></div>
+        </a>
+
+        <a class="phone-link reveal" href="https://keepntrack.ownmypurpose.io" target="_blank" rel="noreferrer" aria-label="Explore Keep n Track">
+          <div class="phone"><div class="phone-screen knt-ui">
+            <div class="mini-topline" style="background:#004185;color:#fff"><span>9:41</span><span>● ◔ ▰</span></div>
+            <div class="knt-header"><img src="https://keepntrack.ownmypurpose.io/media/keep%20n%20track%20horizontal%20logo.png" alt="Keep n Track"><div class="mini-row" style="gap:4px"><span class="round">◌</span><span class="round">⚙</span></div></div>
+            <div class="knt-body">
+              <div class="knt-kicker">Dispatcher workspace</div>
+              <div class="knt-title">Good morning, dispatcher</div>
+              <div class="knt-cta">＋ Paste or add load</div>
+              <div class="knt-metrics">
+                <div class="knt-metric"><strong>4</strong><span>New loads</span></div>
+                <div class="knt-metric"><strong>2</strong><span>Need review</span></div>
+                <div class="knt-metric"><strong>3</strong><span>Bids waiting</span></div>
+                <div class="knt-metric"><strong>2</strong><span>Active dispatch</span></div>
+              </div>
+              <div class="knt-panel"><div class="knt-panel-head"><strong>Priority queue</strong><span>Only items needing attention.</span></div><div class="knt-load"><span class="ref">LD-2048</span><div class="route">Atlanta → Charlotte</div><div class="meta">Sprinter 03 · Review source facts</div></div><div class="knt-load"><span class="ref">LD-2051</span><div class="route">Nashville → Birmingham</div><div class="meta">Bid waiting · $1,240</div></div></div>
+            </div>
+            <div class="mini-nav"><span class="active"><b>⌂</b>Home</span><span><b>▣</b>Loads</span><span><b>↗</b>Bids</span><span><b>▱</b>Dispatch</span><span><b>•••</b>More</span></div>
+          </div></div>
+          <div class="phone-meta"><strong>Keep n Track</strong><span>Dispatch & Logistics</span><p>Load intake, van matching, bids, dispatch status, and delivery visibility from one workspace.</p></div>
+        </a>
+
+        <a class="phone-link reveal" href="https://maatra.ownmypurpose.io/" target="_blank" rel="noreferrer" aria-label="Explore Maatra">
+          <div class="phone"><div class="phone-screen maatra-ui">
+            <div class="mini-topline"><span>9:41</span><span>● ◔ ▰</span></div>
+            <div class="maatra-brandbar mini-between"><img src="https://maatra.ownmypurpose.io/media/maatra%20logo%20horizontal.png" alt="Maatra"><span style="font-size:8px;color:#6F7784">◌</span></div>
+            <div class="maatra-body">
+              <span class="maatra-date">● TUESDAY, 23 SEP</span>
+              <div class="maatra-title">Good morning, Robert</div>
+              <div class="maatra-sub">Here is what needs attention across customers, jobs and money today.</div>
+              <div class="maatra-metrics">
+                <div class="maatra-metric"><span>Jobs today</span><strong>6</strong><em style="color:#0F9F91">2 need assignment</em></div>
+                <div class="maatra-metric"><span>Follow-ups</span><strong>3</strong><em style="color:#356DF3">KSh 210K open work</em></div>
+                <div class="maatra-metric"><span>Collected today</span><strong>KSh 45K</strong><em style="color:#237653">3 payments received</em></div>
+                <div class="maatra-metric"><span>Outstanding</span><strong>KSh 78K</strong><em style="color:#C84355">KSh 12K overdue</em></div>
+              </div>
+              <div class="maatra-queue-title">Priority queue</div>
+              <div class="maatra-queue"><div class="maatra-task"><strong>James Kamau has not approved his quote</strong><span>KSh 24,000 · sent 3 days ago</span><b>Send reminder</b></div><div class="maatra-task"><strong>Karen roof job has no technician</strong><span>Tomorrow · 2:00 PM</span><b style="background:#FCE6E9;color:#C84355">Assign now</b></div></div>
+            </div>
+            <div class="mini-nav"><span class="active"><b>⌂</b>Home</span><span><b>○</b>Customers</span><span><b>▣</b>Jobs</span><span><b>$</b>Money</span><span><b>▦</b>Apps</span></div>
+          </div></div>
+          <div class="phone-meta"><strong>Maatra</strong><span>Service Business Operations</span><p>Customers, jobs, follow-ups, payments, and automation organized around what needs attention next.</p></div>
+        </a>
+
+        <a class="phone-link reveal" href="https://continuity.ownmypurpose.io" target="_blank" rel="noreferrer" aria-label="Explore family continuity">
+          <div class="phone"><div class="phone-screen re-ui">
+            <div class="mini-topline" style="background:#17324D;color:#fff"><span>9:41</span><span>● ◔ ▰</span></div>
+            <div class="re-hero">
+              <div class="re-brandrow mini-between"><img src="https://continuity.ownmypurpose.io/assets/solsabali-re-logo-uBNB8A78.png" alt="(re:) by SolSabali"><div class="re-icons"><i>⌕</i><i>✉</i><i>◌</i></div></div>
+              <div class="re-family">WILLIAMS FAMILY</div>
+              <div class="re-greeting">Good morning, Robert</div>
+              <div class="re-stats"><div class="re-stat"><strong>18</strong><span>Members</span></div><div class="re-stat"><strong>4</strong><span>Branches</span></div><div class="re-stat"><strong>7</strong><span>Homes</span></div><div class="re-stat"><strong>3</strong><span>Events</span></div></div>
+            </div>
+            <div class="re-body">
+              <div class="re-actions"><div class="re-action"><i>◉</i><span>Share</span></div><div class="re-action"><i>✉</i><span>Messages</span></div><div class="re-action"><i>✦</i><span>Events</span></div><div class="re-action"><i>⌂</i><span>Build</span></div><div class="re-action"><i>♧</i><span>Tree</span></div></div>
+              <div class="re-section"><div class="re-section-head">Upcoming</div><div class="re-event"><div class="tag">FAMILY GATHERING</div><strong>Fall Family Dinner</strong><span>Saturday · 5:30 PM</span><span>Atlanta, Georgia</span></div></div>
+              <div class="re-section"><div class="re-section-head">Family continuity</div><div class="re-event"><div class="tag" style="color:#E2B44A">KEEP WHAT MATTERS CLOSE</div><strong>Responsibility map updated</strong><span>Important roles, care, and records stay visible to the family.</span></div></div>
+            </div>
+            <div class="mini-nav"><span class="active"><b>⌂</b>Home</span><span><b>♧</b>Family</span><span><b>□</b>Gather</span><span><b>▱</b>re:Venue</span><span><b>▤</b>Legacy</span></div>
+          </div></div>
+          <div class="phone-meta"><strong>(re:)</strong><span>Family Continuity</span><p>Family members, events, responsibilities, shared context, and legacy information kept visible over time.</p></div>
+        </a>
       </div>
     </section>
 
