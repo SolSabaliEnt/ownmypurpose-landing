@@ -31,6 +31,9 @@ for (const file of pages) {
   check(/<link rel="canonical" href="https:\/\/ownmypurpose\.io\//.test(html), file + ' has canonical');
   check(html.includes('class="skip"') && html.includes('id="main"'), file + ' skip link works');
   check(html.includes('Discuss My App Idea'), file + ' keeps lead CTA');
+  for (const line of ["© 2026 WILLIAMS III FAMILY ENTERPRISES LLC. ALL RIGHTS RESERVED.","FAMILY HOLDINGS · FAMILY OFFICE","30 N GOULD ST · STE R · SHERIDAN, WY 82801"]) {
+    check(html.includes(line), file + ' carries the required company footer line: ' + line);
+  }
   const links = [...html.matchAll(/\b(?:href|src)="(\/[^"#?]*)[^"]*"/g)].map(x => x[1]);
   for (const href of links) {
     const dest = href === '/' ? 'index.html' : extname(href) ? href.slice(1) : join(href.slice(1), 'index.html');
