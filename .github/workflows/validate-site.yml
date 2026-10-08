@@ -1,0 +1,24 @@
+name: Validate static website
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'scripts/check-site.mjs'
+      - '.github/workflows/validate-site.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'scripts/check-site.mjs'
+jobs:
+  static-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/site.js
+      - run: node scripts/check-site.mjs

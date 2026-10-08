@@ -1,103 +1,58 @@
-# Own My Purpose
+# Own My Purpose — Founder-Led MVP Studio
 
-The official landing page for **Own My Purpose**.
+This repository powers **[OwnMyPurpose.io](https://ownmypurpose.io/)**, a founder-focused portfolio and service website for MVP planning, custom software development, and independent product proof.
 
-Own My Purpose is dedicated to helping people move from simply existing to intentionally building a life of purpose through ownership, personal development, and entrepreneurship.
+## Commercial model
 
----
+- **App Idea Fit Call:** short free qualification conversation, coordinated following a project inquiry.
+- **MVP Blueprint:** fixed-scope $1,250 product planning engagement; no immediate online checkout.
+- **Custom MVP Development:** scoped and quoted separately, with agreed milestones and handoff terms.
 
-## 🌐 Live Website
+Public copy must **not** be treated as signed commercial terms. Refund, ownership, and specific deliverable terms require a written agreement.
 
-https://ownmypurpose.io
+## Site structure
 
----
+- \`/\` — homepage and conversion funnel
+- \`/mvp-blueprint/\` — paid planning offer
+- \`/mvp-development/\` — custom software development
+- \`/work/\` — selected independent product work
+- \`/work/simple-paws/\`, \`/work/cleanr/\`, \`/work/kinex-core/\` — case studies
+- \`/about/\` — founder story
+- \`/start/\` — project inquiry handoff to existing Google Form
 
-## About
+The website is static HTML, CSS, and JavaScript, published via GitHub Pages. Design tokens and responsive styles are in \`assets/site.css\`, interaction helpers in \`assets/site.js\`.
 
-This repository contains the source code for the Own My Purpose landing page.
+## Local preview
 
-The website serves as the front door for visitors to:
+From repository root:
 
-- Learn the mission
-- Join the community
-- Explore upcoming programs
-- Subscribe for updates
-- Access future resources and offerings
+\`\`\`sh
+python3 -m http.server 8000
+\`\`\`
 
----
+Visit \`http://localhost:8000/\`.
 
-## Tech Stack
+## Checks
 
-- HTML5
-- CSS3
-- JavaScript
-- GitHub Pages
+\`\`\`sh
+node --check assets/site.js
+node scripts/check-site.mjs
+\`\`\`
 
----
+Automated checks also run through GitHub Actions on relevant pull requests.
 
-## Repository Structure
+## Known limitations / production checklist
 
-```text
-/
-├── index.html
-├── images/
-├── assets/
-├── css/
-├── js/
-└── README.md
-```
+1. **Lead intake:** The existing Google Form is preserved as the live route. Replace it only when a real form backend, confirmation, notification, privacy disclosure, and error handling have been tested.
+2. **Booking:** A direct calendar booking is **not** configured. Inquiry submission does not confirm a meeting.
+3. **Blueprint payment:** No checkout or paid-order confirmation is implemented. Payment and refund terms need business and contract approval.
+4. **Analytics:** \`data-event\` hooks exist, but analytics is only sent if a configured \`gtag\` integration is present. Completion events must only fire after verified results.
+5. **Portfolio media:** Case-study workflow diagrams are clearly labeled illustrations, **not screenshots**. Replace with approved real screenshots and demos as available.
+6. **Product status:** Case-study claims derive from prior technical reviews and need re-verification against current product code and deployments before broader marketing promises.
+7. **SEO social preview:** Review and regenerate the existing social preview file once final case-study imagery has been approved.
+8. **Legal:** Add formal privacy and service/Blueprint purchase terms before collecting more data or taking payment.
+9. **Visual QA:** Review mobile, desktop, keyboard, reduced-motion, and actual page speed in a browser on a preview deployment before merging.
 
-*(Folders will expand as the project grows.)*
+## Deployment safety
 
----
-
-## Development
-
-Clone the repository:
-
-```bash
-git clone https://github.com/SolSabaliEnt/ownmypurpose-landing.git
-```
-
-Open the project locally:
-
-```bash
-cd ownmypurpose-landing
-```
-
-Then open `index.html` in your browser.
-
----
-
-## Deployment
-
-This project is automatically deployed using **GitHub Pages**.
-
-Every commit to the `main` branch publishes the latest version of the landing page.
-
----
-
-## Roadmap
-
-- [ ] Improved SEO
-- [ ] Open Graph social sharing
-- [ ] Analytics integration
-- [ ] Email capture
-- [ ] Newsletter automation
-- [ ] Blog
-- [ ] Member portal
-- [ ] Course platform
-
----
-
-## Contributing
-
-At this time, contributions are not being accepted. This repository is maintained by the Own My Purpose team.
-
----
-
-## License
-
-Copyright © 2026 Own My Purpose.
-
-All Rights Reserved.
+Do not push unreviewed changes directly to \`main\`. The \`CNAME\` and existing \`images/\` files remain unchanged, preserving the configured custom domain and media assets. Deploy after review and validation.
