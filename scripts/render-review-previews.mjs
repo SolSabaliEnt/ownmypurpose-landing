@@ -31,6 +31,16 @@ try {
       if (!response || response.status() !== 200) problems.push(route + ' HTTP ' + (response?.status() ?? 'none'));
       const h1 = page.locator('h1');
       if (await h1.count() !== 1 || !await h1.isVisible()) problems.push(route + ' missing visible H1');
+      // Lazy-loaded offscreen images are intentionally unloaded at networkidle.
+      // Scroll them into view and let the browser finish before validating.
+      const images = page.locator('img');
+      for (let i = 0; i < await images.count(); i++) {
+        const img = images.nth(i);
+        if (await img.getAttribute('loading') === 'lazy') {
+          await img.scrollIntoViewIfNeeded();
+        }
+      }
+      await page.waitForFunction(() => [...document.images].every(img => img.complete));
       const stats = await page.evaluate(() => ({
         horizontalOverflow: document.documentElement.scrollWidth > window.innerWidth + 2,
         brokenImages: [...document.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.getAttribute('src'))
