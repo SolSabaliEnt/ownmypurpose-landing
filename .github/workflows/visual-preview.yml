@@ -1,0 +1,36 @@
+name: Pull request visual preview
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'scripts/render-review-previews.mjs'
+      - '.github/workflows/visual-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screenshot-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.48.0
+          npx playwright install --with-deps chromium
+      - name: Start local preview server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/ownmypurpose-preview.log 2>&1 &
+      - name: Capture desktop and mobile previews
+        run: node scripts/render-review-previews.mjs
+      - name: Attach preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ownmypurpose-review-screenshots
+          path: preview-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
