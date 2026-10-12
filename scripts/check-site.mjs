@@ -4,6 +4,8 @@ import { join, dirname, extname } from 'node:path';
 const root = process.cwd();
 const pages = [
   'index.html',
+  'business-systems/index.html',
+  'assessment/index.html',
   'mvp-blueprint/index.html',
   'mvp-development/index.html',
   'work/index.html',
@@ -30,7 +32,7 @@ for (const file of pages) {
   check(/<meta name="description" content="[^"]+"/.test(html), file + ' has description');
   check(/<link rel="canonical" href="https:\/\/ownmypurpose\.io\//.test(html), file + ' has canonical');
   check(html.includes('class="skip"') && html.includes('id="main"'), file + ' skip link works');
-  check(html.includes('Discuss My App Idea'), file + ' keeps lead CTA');
+  check(html.includes('href="/start/"') || html.includes('href="/assessment/"'), file + ' links into service navigation');
   for (const line of ["© 2026 WILLIAMS III FAMILY ENTERPRISES LLC. ALL RIGHTS RESERVED.","30 N GOULD ST · STE R · SHERIDAN, WY 82801"]) {
     check(html.includes(line), file + ' carries the required company footer line: ' + line);
   }
@@ -47,6 +49,7 @@ const js = readFileSync(join(root, 'assets/site.js'), 'utf8');
 check(css.includes('prefers-reduced-motion'), 'Reduced motion supported');
 check(css.includes('@media(max-width:760px)'), 'Mobile breakpoint present');
 check(js.includes('aria-expanded'), 'Navigation updates disclosure state');
+check(readFileSync(join(root, 'start/index.html'), 'utf8').includes('www.formulateforms.com/f/own-my-purpose/business-systems-fit'), 'Business intake uses Formulate');
 check(existsSync(join(root, 'CNAME')), 'Custom domain file preserved');
 check(existsSync(join(root, 'images/ownmypurpose-favicon.png')), 'Favicon preserved');
 if (failures) process.exitCode = 1;
