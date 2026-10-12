@@ -24,3 +24,6 @@
 .footer-legal{display:grid;gap:16px;padding-top:30px;margin-top:0;color:#adb4bb;letter-spacing:.15em;text-transform:uppercase}
 .footer .footer-legal p{font-size:clamp(12px,1.1vw,14px);line-height:1.75;max-width:none;margin:0;font-weight:500;overflow-wrap:anywhere}
 @media(max-width:760px){.footer-legal{gap:20px;letter-spacing:.11em;padding-top:28px}.footer .footer-legal p{font-size:12px;line-height:1.8}}
+
+/* Business Systems Engineering */
+.system-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin:36px 0}.system-steps span{min-width:0;overflow-wrap:anywhere;padding:17px 10px;border:1px solid #dccfb5;border-radius:11px;background:#f9f4e9;font-size:12px;font-weight:800;color:#5f4930}.feature-list--light li{color:#efeee9;border-bottom-color:#454742}.feature-list--light li:before{color:#e8ac42}.section--dark .price-panel{color:#161718}@media(max-width:1150px){.nav-links{gap:13px}.nav-links>a:not(.button){font-size:12px}.nav-links>.button{padding:10px 14px;min-height:44px}}@media(max-width:920px){.system-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:760px){.system-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
