@@ -27,3 +27,8 @@
 
 /* Business Systems Engineering */
 .system-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin:36px 0}.system-steps span{min-width:0;overflow-wrap:anywhere;padding:17px 10px;border:1px solid #dccfb5;border-radius:11px;background:#f9f4e9;font-size:12px;font-weight:800;color:#5f4930}.feature-list--light li{color:#efeee9;border-bottom-color:#454742}.feature-list--light li:before{color:#e8ac42}.section--dark .price-panel{color:#161718}@media(max-width:1150px){.nav-links{gap:13px}.nav-links>a:not(.button){font-size:12px}.nav-links>.button{padding:10px 14px;min-height:44px}}@media(max-width:920px){.system-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:760px){.system-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Consistent site navigation: the current page is a non-clickable label. */
+.nav-links .nav-current{font-size:14px;font-weight:800;color:#7d5a28;padding:10px 0;white-space:nowrap}
+@media(max-width:760px){.nav-links .nav-current{padding:12px 6px}}
+section[id]{scroll-margin-top:96px}

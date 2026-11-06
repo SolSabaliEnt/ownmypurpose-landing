@@ -32,7 +32,11 @@ for (const file of pages) {
   check(/<meta name="description" content="[^"]+"/.test(html), file + ' has description');
   check(/<link rel="canonical" href="https:\/\/ownmypurpose\.io\//.test(html), file + ' has canonical');
   check(html.includes('class="skip"') && html.includes('id="main"'), file + ' skip link works');
-  check(html.includes('href="/start/"') || html.includes('href="/assessment/"'), file + ' links into service navigation');
+  check(html.includes('aria-label="Main navigation"') && html.includes('Business Systems') && html.includes('Software Development') && html.includes('Contact'), file + ' uses unified marketing navigation');
+  check(!/\bpilot\b/i.test(html) && !/\$750|\$1,250/.test(html), file + ' avoids pilot and upfront fee claims');
+  const pageTitle = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const socialTitle = html.match(/<meta property="og:title" content="([^"]+)"/)?.[1];
+  check(pageTitle === socialTitle, file + ' social title matches page title');
   for (const line of ["© 2026 WILLIAMS III FAMILY ENTERPRISES LLC. ALL RIGHTS RESERVED.","30 N GOULD ST · STE R · SHERIDAN, WY 82801"]) {
     check(html.includes(line), file + ' carries the required company footer line: ' + line);
   }
@@ -50,6 +54,8 @@ check(css.includes('prefers-reduced-motion'), 'Reduced motion supported');
 check(css.includes('@media(max-width:760px)'), 'Mobile breakpoint present');
 check(js.includes('aria-expanded'), 'Navigation updates disclosure state');
 check(readFileSync(join(root, 'start/index.html'), 'utf8').includes('www.formulateforms.com/f/own-my-purpose/business-systems-fit'), 'Business intake uses Formulate');
+check(readFileSync(join(root, 'start/index.html'), 'utf8').includes('www.formulateforms.com/f/own-my-purpose/discovery-call'), 'Product intake uses Formulate');
+check(readFileSync(join(root, 'start/index.html'), 'utf8').includes('id="business-inquiry"') && readFileSync(join(root, 'start/index.html'), 'utf8').includes('id="product-inquiry"'), 'Contact page provides two distinct inquiry destinations');
 check(existsSync(join(root, 'CNAME')), 'Custom domain file preserved');
 check(existsSync(join(root, 'images/ownmypurpose-favicon.png')), 'Favicon preserved');
 if (failures) process.exitCode = 1;
