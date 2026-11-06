@@ -32,3 +32,7 @@
 .nav-links .nav-current{font-size:14px;font-weight:800;color:#7d5a28;padding:10px 0;white-space:nowrap}
 @media(max-width:760px){.nav-links .nav-current{padding:12px 6px}}
 section[id]{scroll-margin-top:96px}
+
+/* Family enterprise link in the legal footer. */
+.footer-legal a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+.footer-legal a:hover,.footer-legal a:focus-visible{color:#f3c373}
