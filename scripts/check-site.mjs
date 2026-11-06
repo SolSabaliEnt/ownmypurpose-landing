@@ -37,13 +37,17 @@ for (const file of pages) {
   const pageTitle = html.match(/<title>([^<]+)<\/title>/)?.[1];
   const socialTitle = html.match(/<meta property="og:title" content="([^"]+)"/)?.[1];
   check(pageTitle === socialTitle, file + ' social title matches page title');
-  for (const line of ["© 2026 WILLIAMS III FAMILY ENTERPRISES LLC. ALL RIGHTS RESERVED.","30 N GOULD ST · STE R · SHERIDAN, WY 82801"]) {
-    check(html.includes(line), file + ' carries the required company footer line: ' + line);
+  check(/© 2026 <a href="https:\/\/williamsiiifamily\.com\/" target="_blank" rel="noopener noreferrer">WILLIAMS III FAMILY ENTERPRISES LLC<\/a>\. ALL RIGHTS RESERVED\./.test(html), file + ' links company name in legal footer');
+  check(html.includes('30 N GOULD ST · STE R · SHERIDAN, WY 82801'), file + ' preserves company address');
+  if (file === 'index.html' || file === 'about/index.html') {
+    check(html.includes('src="/assets/rwiii%20headshot%20for%20williams%20family%20enterprises.png"'), file + ' displays the new founder headshot');
+    check(!html.includes('Rob Cartoon 1024x1024.png'), file + ' no longer displays the cartoon');
   }
   check(!html.includes('FAMILY HOLDINGS · FAMILY OFFICE'), file + ' omits the family-holdings descriptor');
   const links = [...html.matchAll(/\b(?:href|src)="(\/[^"#?]*)[^"]*"/g)].map(x => x[1]);
   for (const href of links) {
-    const dest = href === '/' ? 'index.html' : extname(href) ? href.slice(1) : join(href.slice(1), 'index.html');
+    const decodedHref = decodeURIComponent(href);
+    const dest = decodedHref === '/' ? 'index.html' : extname(decodedHref) ? decodedHref.slice(1) : join(decodedHref.slice(1), 'index.html');
     check(existsSync(join(root, dest)), file + ' internal link ' + href);
   }
   check(!/project_brief_submitted|booking_confirmed|blueprint_purchase_completed/.test(html), file + ' does not claim unverified conversions');
